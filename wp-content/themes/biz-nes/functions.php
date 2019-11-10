@@ -200,7 +200,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 
 /* добавляємо клас 'active' в li wp_nav_menu */
-function My_atrb_nav_menu_css($classes, $item){
+function My_atrb_nav_menu_css($classes){
 	if (in_array('current-menu-item', $classes)){
 	$classes[] = 'active';
 	}
