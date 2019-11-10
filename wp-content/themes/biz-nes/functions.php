@@ -196,3 +196,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 
 
+/* добавляємо клас 'active' в li wp_nav_menu */
+function My_atrb_nav_menu_css($classes, $item){
+	if (in_array('current-menu-item', $classes)){
+	$classes[] = 'active';
+	}
+return $classes;
+}
+add_filter('nav_menu_css_class', 'My_atrb_nav_menu_css',10,4);
