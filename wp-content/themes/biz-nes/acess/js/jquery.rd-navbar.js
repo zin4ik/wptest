@@ -6,9 +6,7 @@
  *
  */
 
-
-;
-(function ($) {
+jQuery(function ($) {
 
     var settings = {
             cntClass: 'rd-mobilemenu',
@@ -255,8 +253,8 @@
             new RDMobileMenu(o[0]).init();
         }
     };
-})(jQuery);
+});
 
-$(document).ready(function () {
+jQuery(document).ready(function ($) {
     RDMobilemenu_autoinit('[data-type="navbar"]');
 });

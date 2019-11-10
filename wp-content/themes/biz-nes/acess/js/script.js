@@ -17,30 +17,22 @@ include('js/jquery.easing.1.3.js');
 
 /* PointerEvents  
  ========================================================*/
-// ;
-// (function ($) {
-//     if(isIE() && isIE() < 11){ 
-//         include('js/pointer-events.js');
-//         $('html').addClass('lt-ie11'); 
-//         $(document).ready(function(){
-//             PointerEventsPolyfill.initialize({});
-//         });
-//     }
-// })(jQuery); 
+ ;
+(function ($) {
+    if(isIE() && isIE() < 11){ 
+        include('js/pointer-events.js');
+        $('html').addClass('lt-ie11'); 
+        $(document).ready(function(){
+            PointerEventsPolyfill.initialize({});
+        });
+    }
+})(jQuery); 
 
 /* Stick up menus
  ========================================================*/
-;
-(function ($) {
-    var o = $('html');
-    if (o.hasClass('desktop')) {
-        include('js/tmstickup.js');
-
-        $(document).ready(function () {
-            $('#stuck_container').TMStickUp({})
-        });
-    }
-})(jQuery);
+ jQuery(document).ready(function ($) {
+    $('#stuck_container').TMStickUp({})
+});
 
 /* ToTop
  ========================================================*/
@@ -100,17 +92,17 @@ include('js/jquery.easing.1.3.js');
 
 /* Superfish menus
  ========================================================*/
-;
-(function ($) {
-    include('js/superfish.js');    
-})(jQuery);
+// ;
+// (function ($) {
+//     include('js/superfish.js');    
+// })(jQuery);
 
 /* Navbar
  ========================================================*/
 ;
-(function ($) {
-    include('js/jquery.rd-navbar.js');
-})(jQuery);
+// (function ($) {
+//     include('js/jquery.rd-navbar.js');
+// })(jQuery);
 
 
 /* Google Map

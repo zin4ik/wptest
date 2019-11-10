@@ -14,6 +14,8 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
+	<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa sed, similique magnam nulla maiores expedita voluptatem labore ratione ipsum commodi provident corrupti quae deserunt quibusdam debitis doloribus. Error, consectetur tenetur.</p>
+	<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa sed, similique magnam nulla maiores expedita voluptatem labore ratione ipsum commodi provident corrupti quae deserunt quibusdam debitis doloribus. Error, consectetur tenetur.</p>
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'biz-nes' ) ); ?>">
 				<?php

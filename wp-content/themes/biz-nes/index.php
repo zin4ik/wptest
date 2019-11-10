@@ -52,8 +52,14 @@ get_header();
 		?>
 
 		</main><!-- #main -->
-	</div><!-- #primary -->
 
+
+		<p>
+	Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores fugit aliquam dolore commodi perferendis numquam, eaque laboriosam alias quibusdam officia
+	 eveniet illum sed accusamus architecto veritatis quis nulla illo animi.</p>
+
+	</div><!-- #primary -->
+	
 <?php
 get_sidebar();
 get_footer();
