@@ -48,6 +48,10 @@ function custom_theme_options() {
 				'id'    => 'header',
 				'title' => __( 'Шапка сайту', 'theme-text-domain' ),
 			),
+			array(
+				'id'    => 'footer',
+				'title' => __( 'Підвал сайту', 'theme-text-domain' ),
+			),
 		),
 		'settings'        => array(
 			/*логотип для шапки*/
@@ -97,6 +101,16 @@ function custom_theme_options() {
 				'std'          => '',
 				'type'         => 'text',
 				'section'      => 'header',
+			),
+
+			/**footer */
+			array(
+				'id'           => 'footer_copiright',
+				'label'        => __( 'Копірайт', 'theme-text-domain' ),
+				'desc'         => '',
+				'std'          => '',
+				'type'         => 'text',
+				'section'      => 'footer',
 			),
 /*зворотний звязок*/
 				array(
