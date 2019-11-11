@@ -153,13 +153,18 @@ function biz_nes_scripts() {
 
 
 
-	wp_enqueue_script( 'biz-nes-device', get_template_directory_uri() . '/acess/js/device.js', array('jquery'), '', false);
+	wp_enqueue_script( 'biz-nes-device', get_template_directory_uri() . '/acess/js/device.min.js', array('jquery'), '', false);
 
 	wp_enqueue_script( 'biz-nes-script', get_template_directory_uri() . '/acess/js/script.js', array('jquery'), '', true);
 	wp_enqueue_script( 'biz-nes-superfish', get_template_directory_uri() . '/acess/js/superfish.js', array('jquery'), '', true);
 	wp_enqueue_script( 'biz-nes-jquery-rd-navbar', get_template_directory_uri() . '/acess/js/jquery.rd-navbar.js', array('jquery'), '', true);
 	wp_enqueue_script( 'biz-nes-tmstickup', get_template_directory_uri() . '/acess/js/tmstickup.js', array('jquery'), '', true);
+	wp_enqueue_script( 'biz-nes-camera', get_template_directory_uri() . '/acess/js/camera.js', array('jquery'), '', true);
 	wp_enqueue_script( 'biz-nes-jquery-magnific-popup', get_template_directory_uri() . '/acess/js/jquery.magnific-popup.js', array('jquery'), '', true);
+	wp_enqueue_script( 'biz-nes-jquery.mobile.customized.min', get_template_directory_uri() . '/acess/js/jquery.mobile.customized.min.js', array('jquery'), '', true);
+
+	wp_enqueue_script( 'biz-nes-jquery.ui.totop', get_template_directory_uri() . '/acess/js/jquery.ui.totop.js', array('jquery'), '', true);
+
 
 	wp_enqueue_script( 'biz-nes-my-magnific-popup', get_template_directory_uri() . '/acess/js/my-magnific-popup.js', array('jquery'), '', true);
 

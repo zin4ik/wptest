@@ -1,3 +1,6 @@
+var urlJs='/wp-content/themes/biz-nes/acess/';
+
+
 function include(scriptUrl) {
     document.write('<script src="' + scriptUrl + '"></script>');
 }
@@ -40,8 +43,7 @@ include('js/jquery.easing.1.3.js');
 (function ($) {
     var o = $('html');
     if (o.hasClass('desktop')) {
-        include('js/jquery.ui.totop.js');
-
+        
         $(document).ready(function () {
             $().UItoTop({
                 easingType: 'easeOutQuart',
@@ -111,7 +113,7 @@ include('js/jquery.easing.1.3.js');
 (function ($) {
     var o = document.getElementById("google-map");
     if (o) {
-        include('//maps.google.com/maps/api/js?sensor=false');
+        include('/maps.google.com/maps/api/js?sensor=false');
         include('js/jquery.rd-google-map.js');
 
         $(document).ready(function () {
@@ -209,13 +211,13 @@ document.write('<meta name="viewport" content="width=device-width,initial-scale=
 
 /* Camera
 ========================================================*/
-;(function ($) {
+jQuery(document).ready(function ($) {
 var o = $('#camera');
     if (o.length > 0) {
         if (!(isIE() && (isIE() > 9))) {
             include('js/jquery.mobile.customized.min.js');
         }
-
+       
         include('js/camera.js');
 
         $(document).ready(function () {
@@ -235,7 +237,7 @@ var o = $('#camera');
             })
         });
     }
-})(jQuery);
+});
 
 /* Owl Carousel
 ========================================================*/
