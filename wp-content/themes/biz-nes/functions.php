@@ -152,6 +152,9 @@ add_action( 'widgets_init', 'biz_nes_widgets_init' );
  * Enqueue scripts and styles.
  */
 function biz_nes_scripts() {
+
+
+	//====css====
 	wp_enqueue_style( 'biz-nes-style', get_stylesheet_uri() );
 
 	wp_enqueue_style('grid-biz-nes', get_template_directory_uri() .'/acess/css/grid.css' );
@@ -176,7 +179,7 @@ function biz_nes_scripts() {
 
 
 
-
+//=======js====== 
 	wp_enqueue_script( 'biz-nes-device', get_template_directory_uri() . '/acess/js/device.min.js', array('jquery'), '', false);
 
 	wp_enqueue_script( 'biz-nes-script', get_template_directory_uri() . '/acess/js/script.js', array('jquery'), '', true);
@@ -185,16 +188,14 @@ function biz_nes_scripts() {
 	wp_enqueue_script( 'biz-nes-tmstickup', get_template_directory_uri() . '/acess/js/tmstickup.js', array('jquery'), '', true);
 
 	if (is_page_template('home-page.php')){
-			wp_enqueue_script( 'biz-nes-camera', get_template_directory_uri() . '/acess/js/camera.js', array('jquery'), '', true);
+		wp_enqueue_script( 'biz-nes-camera', get_template_directory_uri() . '/acess/js/camera.js', array('jquery'), '', true);
 	}
-	
-	
+
+	wp_enqueue_script( 'biz-nes-jquery-cookie', get_template_directory_uri() . '/acess/js/jquery.cookie.js', array('jquery'), '', true);
+	wp_enqueue_script( 'biz-nes-jquery-easing-1-3', get_template_directory_uri() . '/acess/js/jquery.easing.1.3.js', array('jquery'), '', true);
 	wp_enqueue_script( 'biz-nes-jquery-magnific-popup', get_template_directory_uri() . '/acess/js/jquery.magnific-popup.js', array('jquery'), '', true);
 	wp_enqueue_script( 'biz-nes-jquery.mobile.customized.min', get_template_directory_uri() . '/acess/js/jquery.mobile.customized.min.js', array('jquery'), '', true);
-
 	wp_enqueue_script( 'biz-nes-jquery.ui.totop', get_template_directory_uri() . '/acess/js/jquery.ui.totop.js', array('jquery'), '', true);
-
-
 	wp_enqueue_script( 'biz-nes-my-magnific-popup', get_template_directory_uri() . '/acess/js/my-magnific-popup.js', array('jquery'), '', true);
 
 
