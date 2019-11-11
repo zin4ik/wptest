@@ -17,6 +17,31 @@
       ========================================================
       -->
       <footer>
+        <section class="widget well3">
+          <div class="container">
+            <div class="row">
+              <div class="grid_4">
+              <?php if(is_active_sidebar('footer_left')):
+                dynamic_sidebar('footer_left');
+              endif;?>
+              </div>
+              <!-- /.grid_4 -->
+              <div class="grid_4">
+              <?php if(is_active_sidebar('footer_center')){
+                dynamic_sidebar('footer_center');
+              } ?>
+              </div>
+              <!-- /.grid_4 -->
+              <div class="grid_4">
+              <?php if(is_active_sidebar('footer_right')){ 
+                dynamic_sidebar('footer_right');
+              }?>
+              </div>
+              <!-- /.grid_4 -->
+            </div>
+          </div>  <!--/container-->
+      </section>
+      <!-- /.widget -->
         <section>
           <div class="container">
             <div class="copyright">
