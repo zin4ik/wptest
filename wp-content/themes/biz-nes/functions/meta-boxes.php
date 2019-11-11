@@ -16,6 +16,54 @@ add_action( 'admin_init', 'custom_meta_boxes' );
  */
 function custom_meta_boxes() {
 
+
+	$home_meta_box = array(
+		'id'       => 'home_page_meta_box',
+		'title'    => __( 'Налаштування головної сторінки', 'theme-text-domain' ),
+		'desc'     => '',
+		'pages'    => array( 'page' ),
+		'context'  => 'normal',
+		'priority' => 'high',
+		'fields'   => array(
+			array(
+				'label' => __( 'Слайдер', 'theme-text-domain' ),
+				'id'    => 'home_page_slider_tab',
+				'type'  => 'tab',
+			),
+			array(
+				'label' => __( 'Показувать слайдер..?', 'theme-text-domain' ),
+				'id'    => 'home_page_slider_show',
+				'type'  => 'on-off',
+				'desc'  => sprintf( __( 'Поазувать чи не показувать слайдер', 'theme-text-domain' ), '<code>on</code>' ),
+				'std'   => 'off',
+			),	
+			array(
+				'id'           => 'home_page_slider_list_item',
+				'label'        => __( 'Слайдер', 'theme-text-domain' ),
+				'desc'         => '',
+				'std'          => '',
+				'type'         => 'list-item',
+				'condition'    => 'home_page_slider_show:is(on)',
+				'settings'     => array(
+					array(
+						'id'           => 'demo_list_item_content',
+						'label'        => __( 'Content', 'theme-text-domain' ),
+						'desc'         => '',
+						'std'          => '',
+						'type'         => 'textarea-simple',
+						'rows'         => '10',
+						'post_type'    => '',
+						'taxonomy'     => '',
+						'min_max_step' => '',
+						'class'        => '',
+						'condition'    => '',
+						'operator'     => 'and',
+					),
+				),
+			),
+		
+		),
+	);
 	/**
 	 * Create a custom meta boxes array that we pass to
 	 * the OptionTree Meta Box API Class.
@@ -81,5 +129,13 @@ function custom_meta_boxes() {
 	 */
 	if ( function_exists( 'ot_register_meta_box' ) ) {
 		ot_register_meta_box( $my_meta_box );
+		
+		/**умова виведення мета-бокса на певну сторінку */
+		$post_id = isset( $_GET['post'] ) ? $_GET['post'] : ( isset( $_POST['post_ID'] ) ? $_POST['post_ID'] : 0 );
+		$template_file = get_post_meta($post_id, '_wp_page_template', TRUE);
+		if ( $template_file == 'home-page.php' ){
+			ot_register_meta_box( $home_meta_box );
+		}
+		
 	}
 }
