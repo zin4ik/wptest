@@ -19,7 +19,10 @@
       <footer>
         <section>
           <div class="container">
-            <div class="copyright">Business Company © <span id="copyright-year"></span>.&nbsp;&nbsp;<a href="index-5.html">Privacy Policy</a>
+            <div class="copyright">
+            <?php if (ot_get_option( 'footer_copiright' )){
+              echo do_shortcode( ot_get_option( 'footer_copiright' ));
+            }?> © <span id="copyright-year"></span>.&nbsp;&nbsp;<a href="index-5.html">Privacy Policy</a>
             </div>
           </div>
         </section>
