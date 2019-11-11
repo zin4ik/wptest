@@ -5,25 +5,31 @@
 
 get_header();
 ?>
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-			<section class="well1">
-				<div class="container">
-				<?php
-				while ( have_posts() ) :
-					the_post();
-					get_template_part( 'template-parts/content', 'page' );
+<?php 
+$sliders_main = get_post_meta($post->ID, 'home_page_slider_list_item',true);
+// echo'<pre>';
+// print_r($sliders_main);
+// echo'<pre>';
+ ?>
 
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) :
-						comments_template();
-					endif;
 
-				endwhile; // End of the loop.
-				?>
+	<main>
+		<section class="camera_container">
+          <div id="camera" class="camera_wrap">
+
+		  <?php foreach($sliders_main as $slider): ?>
+            <div data-src="<?php echo $slider[home_page_slider_upload];?>">
+              <div class="camera_caption fadeIn">
+                <div class="container">
+                  <div class="row">
+                    <div class="preffix_6 grid_6"><?php echo $slider[home_page_slider_name];?></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+			<?php endforeach;?>
 				</div>
 			</section>
 		</main><!-- #main -->
-	</div>
 <?php
 get_footer();

@@ -40,24 +40,19 @@ function custom_meta_boxes() {
 			array(
 				'id'           => 'home_page_slider_list_item',
 				'label'        => __( 'Слайдер', 'theme-text-domain' ),
-				'desc'         => '',
-				'std'          => '',
 				'type'         => 'list-item',
 				'condition'    => 'home_page_slider_show:is(on)',
 				'settings'     => array(
 					array(
-						'id'           => 'demo_list_item_content',
-						'label'        => __( 'Content', 'theme-text-domain' ),
+						'id'           => 'home_page_slider_name',
+						'label'        => __( 'Назва слайдеру', 'theme-text-domain' ),
+						'type'         => 'text',
+					),
+					array(
+						'id'           => 'home_page_slider_upload',
+						'label'        => __( 'Завантажте слайдер', 'theme-text-domain' ),
 						'desc'         => '',
-						'std'          => '',
-						'type'         => 'textarea-simple',
-						'rows'         => '10',
-						'post_type'    => '',
-						'taxonomy'     => '',
-						'min_max_step' => '',
-						'class'        => '',
-						'condition'    => '',
-						'operator'     => 'and',
+						'type'         => 'upload',
 					),
 				),
 			),
@@ -128,13 +123,14 @@ function custom_meta_boxes() {
 	 * ot_register_meta_box() function.
 	 */
 	if ( function_exists( 'ot_register_meta_box' ) ) {
-		ot_register_meta_box( $my_meta_box );
-		
+	ot_register_meta_box( $my_meta_box );
+
 		/**умова виведення мета-бокса на певну сторінку */
 		$post_id = isset( $_GET['post'] ) ? $_GET['post'] : ( isset( $_POST['post_ID'] ) ? $_POST['post_ID'] : 0 );
 		$template_file = get_post_meta($post_id, '_wp_page_template', TRUE);
 		if ( $template_file == 'home-page.php' ){
 			ot_register_meta_box( $home_meta_box );
+			
 		}
 		
 	}

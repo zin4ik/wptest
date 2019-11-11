@@ -183,7 +183,12 @@ function biz_nes_scripts() {
 	wp_enqueue_script( 'biz-nes-superfish', get_template_directory_uri() . '/acess/js/superfish.js', array('jquery'), '', true);
 	wp_enqueue_script( 'biz-nes-jquery-rd-navbar', get_template_directory_uri() . '/acess/js/jquery.rd-navbar.js', array('jquery'), '', true);
 	wp_enqueue_script( 'biz-nes-tmstickup', get_template_directory_uri() . '/acess/js/tmstickup.js', array('jquery'), '', true);
-	wp_enqueue_script( 'biz-nes-camera', get_template_directory_uri() . '/acess/js/camera.js', array('jquery'), '', true);
+
+	if (is_page_template('home-page.php')){
+			wp_enqueue_script( 'biz-nes-camera', get_template_directory_uri() . '/acess/js/camera.js', array('jquery'), '', true);
+	}
+	
+	
 	wp_enqueue_script( 'biz-nes-jquery-magnific-popup', get_template_directory_uri() . '/acess/js/jquery.magnific-popup.js', array('jquery'), '', true);
 	wp_enqueue_script( 'biz-nes-jquery.mobile.customized.min', get_template_directory_uri() . '/acess/js/jquery.mobile.customized.min.js', array('jquery'), '', true);
 
