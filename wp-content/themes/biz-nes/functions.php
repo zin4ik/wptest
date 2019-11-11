@@ -236,3 +236,14 @@ function My_atrb_nav_menu_css($classes){
 return $classes;
 }
 add_filter('nav_menu_css_class', 'My_atrb_nav_menu_css',10,4);
+
+/**видалення класу з тегу body */
+// function Atrb_remove_class($classes)
+// {
+// 	if($key=array_search('page',$classes)){
+// 		unset($classes[$key]);
+// 		return $classes;
+
+// 	}
+// }
+// add_filter('body_class', 'Atrb_remove_class');
