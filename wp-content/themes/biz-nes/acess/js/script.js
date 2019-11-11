@@ -1,4 +1,4 @@
-var urlJs='/wp-content/themes/biz-nes/acess/';
+var urlJs='http://biznes.bi/wp-content/themes/biz-nes/acess/';
 
 
 function include(scriptUrl) {
@@ -12,18 +12,33 @@ function isIE() {
 
 /* cookie.JS
  ========================================================*/
-include('js/jquery.cookie.js');
+include(urlJs+'js/jquery.cookie.js');
 
 /* Easing library
  ========================================================*/
-include('js/jquery.easing.1.3.js');
+include(urlJs+'js/jquery.easing.1.3.js');
 
 /* PointerEvents  
  ========================================================*/
+jQuery(document).ready(function($){
+    $('popup-with-form').magnificPopup({
+		type: 'inline',
+		preloader: false,
+        callbacks: {
+			beforeOpen: function() {
+				if($(window).width() < 700) {
+					this.st.focus = false;
+				} 
+			}
+		}
+    })
+})
+
+
  ;
 (function ($) {
     if(isIE() && isIE() < 11){ 
-        include('js/pointer-events.js');
+        include(urlJs+'js/pointer-events.js');
         $('html').addClass('lt-ie11'); 
         $(document).ready(function(){
             PointerEventsPolyfill.initialize({});
@@ -59,7 +74,7 @@ include('js/jquery.easing.1.3.js');
 (function ($) {
     var o = $('[data-equal-group]');
     if (o.length > 0) {
-        include('js/jquery.equalheights.js');
+        include(urlJs+'js/jquery.equalheights.js');
     }
 })(jQuery);
 
@@ -69,10 +84,10 @@ include('js/jquery.easing.1.3.js');
 (function ($) {
     var o = $('html');
     if (o.hasClass('desktop')) {
-        include('js/jquery.mousewheel.min.js');
-        include('js/jquery.simplr.smoothscroll.min.js');
+        include(urlJs+'js/jquery.mousewheel.min.js');
+        include(urlJs+'js/jquery.simplr.smoothscroll.min.js');
 
-        $(document).ready(function () {
+        jQuery(document).ready(function ($) {
             $.srSmoothscroll({
                 step: 150,
                 speed: 800
@@ -114,7 +129,7 @@ include('js/jquery.easing.1.3.js');
     var o = document.getElementById("google-map");
     if (o) {
         include('/maps.google.com/maps/api/js?sensor=false');
-        include('js/jquery.rd-google-map.js');
+        include(urlJs+'js/jquery.rd-google-map.js');
 
         $(document).ready(function () {
             var o = $('#google-map');
@@ -136,7 +151,7 @@ include('js/jquery.easing.1.3.js');
 
     if ((navigator.userAgent.toLowerCase().indexOf('msie') == -1 ) || (isIE() && isIE() > 9)) {
         if (o.hasClass('desktop')) {
-            include('js/wow.js');
+            include(urlJs+'js//wow.js');
 
             $(document).ready(function () {
                 new WOW().init();
@@ -151,8 +166,8 @@ include('js/jquery.easing.1.3.js');
 (function ($) {
     var o = $('#contact-form');
     if (o.length > 0) {
-        include('js/modal.js');
-        include('js/TMForm.js'); 
+        include(urlJs+'js/modal.js');
+        include(urlJs+'js/TMForm.js'); 
 
         if($('#contact-form .recaptcha').length > 0){
         	include('//www.google.com/recaptcha/api/js/recaptcha_ajax.js');
@@ -215,10 +230,10 @@ jQuery(document).ready(function ($) {
 var o = $('#camera');
     if (o.length > 0) {
         if (!(isIE() && (isIE() > 9))) {
-            include('js/jquery.mobile.customized.min.js');
+            include(urlJs+'js/jquery.mobile.customized.min.js');
         }
        
-        include('js/camera.js');
+        include(urlJs+'js/camera.js');
 
         $(document).ready(function () {
             o.camera({
@@ -244,7 +259,7 @@ var o = $('#camera');
 ;(function ($) {
     var o = $('.owl-carousel');
     if (o.length > 0) {
-        include('js/owl.carousel.min.js');
+        include(urlJs+'js/owl.carousel.min.js');
         $(document).ready(function () {
             o.owlCarousel({
                 margin: 30,
@@ -267,7 +282,7 @@ var o = $('#camera');
 /* Mailform
 =============================================*/
 ;(function ($) {
-    include('js/mailform/jquery.form.min.js');
-    include('js/mailform/jquery.rd-mailform.min.c.js');
+    include(urlJs+'js/mailform/jquery.form.min.js');
+    include(urlJs+'js/mailform/jquery.rd-mailform.min.c.js');
 })(jQuery);
 
