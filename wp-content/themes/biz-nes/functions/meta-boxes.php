@@ -56,6 +56,46 @@ function custom_meta_boxes() {
 					),
 				),
 			),
+			array(
+				'label' => __( 'Переваги', 'theme-text-domain' ),
+				'id'    => 'home_page_advansed_tab',
+				'type'  => 'tab',
+			),
+			array(
+				'label' => __( 'Показувать Переваги..?', 'theme-text-domain' ),
+				'id'    => 'home_page_advansed_show',
+				'type'  => 'on-off',
+				'desc'  => sprintf( __( 'Поазувать чи не показувать Переваги', 'theme-text-domain' ), '<code>on</code>' ),
+				'std'   => 'off',
+			),	
+			array(
+				'id'           => 'home_page_advansed_list',
+				'label'        => __( 'Переваги', 'theme-text-domain' ),
+				'type'         => 'list-item',
+				'condition'    => 'home_page_advansed_show:is(on)',
+				'settings'     => array(
+					array(
+						'id'           => 'home_page_advansed_icon',
+						'label'        => 'Вкажіть іконку',
+						'type'         => 'text',
+						'desc' 		   => 'Додайте до опису іконку у форматі "fa-globe", детальний опис іконок
+						на сайті <a href="https://fontawesome.com/icons?d=gallery">fontawesome.com</a> ',
+					),
+					array(
+						'id'           => 'home_page_advansed_name',
+						'label'        => 'Вкажіть перевагу',
+						'type'         => 'text',
+						'desc' 		   => 'Додайте назву переваги для відображення',
+					),
+					array(
+						'id'           => 'home_page_advansed_name',
+						'label'        => 'Вкажіть перевагу',
+						'type'         => 'textarea',
+						'desc' 		   => 'Додайте опис переваги',
+					),
+					
+				),
+			),
 		
 		),
 	);
