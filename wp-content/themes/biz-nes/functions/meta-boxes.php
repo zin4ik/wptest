@@ -54,7 +54,7 @@ function custom_meta_boxes() {
 						'desc'         => '',
 						'type'         => 'upload',
 					),
-				),
+				)
 			),
 			array(
 				'label' => __( 'Переваги', 'theme-text-domain' ),
@@ -74,30 +74,36 @@ function custom_meta_boxes() {
 				'type'         => 'list-item',
 				'condition'    => 'home_page_advansed_show:is(on)',
 				'settings'     => array(
-					array(
-						'id'           => 'home_page_advansed_icon',
-						'label'        => 'Вкажіть іконку',
-						'type'         => 'text',
-						'desc' 		   => 'Додайте до опису іконку у форматі "fa-globe", детальний опис іконок
-						на сайті <a href="https://fontawesome.com/icons?d=gallery">fontawesome.com</a> ',
-					),
-					array(
-						'id'           => 'home_page_advansed_name',
-						'label'        => 'Вкажіть перевагу',
-						'type'         => 'text',
-						'desc' 		   => 'Додайте назву переваги для відображення',
-					),
-					array(
-						'id'           => 'home_page_advansed_name',
-						'label'        => 'Вкажіть перевагу',
-						'type'         => 'textarea',
-						'desc' 		   => 'Додайте опис переваги',
-					),
-					
+				array(
+					'id'           => 'home_page_advansed_icon',
+					'label'        => 'Вкажіть іконку',
+					'type'         => 'text',
+					'desc' 		   => 'Додайте до опису іконку у форматі "fa-globe", детальний опис іконок
+					на сайті <a href="https://fontawesome.com/icons?d=gallery">fontawesome.com</a> ',
 				),
+				array(
+					'id'           => 'home_page_advansed_name',
+					'label'        => 'Вкажіть перевагу',
+					'type'         => 'text',
+					'desc' 		   => 'Додайте назву переваги для відображення',
+				),
+				array(
+					'id'           => 'home_page_advansed_descrip',
+					'label'        => 'Вкажіть перевагу',
+					'type'         => 'textarea',
+					'desc' 		   => 'Додайте опис переваги',
+				),
+				array(
+					'id'           => 'home_page_advansed_link',
+					'label'        => 'Вкажіть силку для ознайомлення переваги',
+					'type'         => 'text',
+				),
+
+					
+				)
 			),
 		
-		),
+		)
 	);
 	/**
 	 * Create a custom meta boxes array that we pass to
