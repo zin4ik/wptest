@@ -61,6 +61,8 @@ if ( ! function_exists( 'biz_nes_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+
+		include (get_template_directory().'/inc/custom_post_awards.php');
 	}
 endif;
 
