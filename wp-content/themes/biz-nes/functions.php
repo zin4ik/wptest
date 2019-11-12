@@ -62,11 +62,21 @@ if ( ! function_exists( 'biz_nes_setup' ) ) :
 			'flex-height' => true,
 		) );
 
+// ======= підключення нових типів записив custom_page ===
 		include (get_template_directory().'/inc/custom_post_awards.php');
 		include (get_template_directory().'/inc/custom_post_reviews.php');
 		include (get_template_directory().'/inc/custom_post_servise.php');
 
 	}
+
+	// Функція reset пермалінків/ссилок на сторінки, скидання правил перезапису ЧПУ 
+	/* Сбрасываем правила для произвольного типа записей. */
+	add_action( 'after_switch_theme', 'biz_nes_reset_permalink' );
+	function biz_nes_reset_permalink(){
+		flush_rewrite_rules();
+	}
+
+
 endif;
 
 /**
