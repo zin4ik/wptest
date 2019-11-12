@@ -18,93 +18,146 @@ function custom_meta_boxes() {
 
 
 	$home_meta_box = array(
-		'id'       => 'home_page_meta_box',
-		'title'    => __( 'Налаштування головної сторінки', 'theme-text-domain' ),
+			'id'       => 'home_page_meta_box',
+			'title'    => __( 'Налаштування головної сторінки', 'theme-text-domain' ),
+			'desc'     => '',
+			'pages'    => array( 'page' ),
+			'context'  => 'normal',
+			'priority' => 'high',
+			'fields'   => array(
+				array(
+					'label' => __( 'Слайдер', 'theme-text-domain' ),
+					'id'    => 'home_page_slider_tab',
+					'type'  => 'tab',
+				),
+				array(
+					'label' => __( 'Показувать слайдер..?', 'theme-text-domain' ),
+					'id'    => 'home_page_slider_show',
+					'type'  => 'on-off',
+					'desc'  => sprintf( __( 'Поазувать чи не показувать слайдер', 'theme-text-domain' ), '<code>on</code>' ),
+					'std'   => 'off',
+				),	
+				array(
+					'id'           => 'home_page_slider_list_item',
+					'label'        => __( 'Слайдер', 'theme-text-domain' ),
+					'type'         => 'list-item',
+					'condition'    => 'home_page_slider_show:is(on)',
+					'settings'     => array(
+						array(
+							'id'           => 'home_page_slider_name',
+							'label'        => __( 'Назва слайдеру', 'theme-text-domain' ),
+							'type'         => 'text',
+						),
+						array(
+							'id'           => 'home_page_slider_upload',
+							'label'        => __( 'Завантажте слайдер', 'theme-text-domain' ),
+							'desc'         => '',
+							'type'         => 'upload',
+						),
+					)
+				),
+				array(
+					'label' => __( 'Переваги', 'theme-text-domain' ),
+					'id'    => 'home_page_advansed_tab',
+					'type'  => 'tab',
+				),
+				array(
+					'label' => __( 'Показувать Переваги..?', 'theme-text-domain' ),
+					'id'    => 'home_page_advansed_show',
+					'type'  => 'on-off',
+					'desc'  => sprintf( __( 'Поазувать чи не показувать Переваги', 'theme-text-domain' ), '<code>on</code>' ),
+					'std'   => 'off',
+				),	
+				array(
+					'id'           => 'home_page_advansed_list',
+					'label'        => __( 'Переваги', 'theme-text-domain' ),
+					'type'         => 'list-item',
+					'condition'    => 'home_page_advansed_show:is(on)',
+					'settings'     => array(
+					array(
+						'id'           => 'home_page_advansed_icon',
+						'label'        => 'Вкажіть іконку',
+						'type'         => 'text',
+						'desc' 		   => 'Додайте до опису іконку у форматі "fa-globe", детальний опис іконок
+						на сайті <a href="https://fontawesome.com/icons?d=gallery">fontawesome.com</a> ',
+					),
+					array(
+						'id'           => 'home_page_advansed_name',
+						'label'        => 'Вкажіть перевагу',
+						'type'         => 'text',
+						'desc' 		   => 'Додайте назву переваги для відображення',
+					),
+					array(
+						'id'           => 'home_page_advansed_descrip',
+						'label'        => 'Вкажіть перевагу',
+						'type'         => 'textarea',
+						'desc' 		   => 'Додайте опис переваги',
+					),
+					array(
+						'id'           => 'home_page_advansed_link',
+						'label'        => 'Вкажіть силку для ознайомлення переваги',
+						'type'         => 'text',
+					),
+					)		
+				),
+				array(
+					'label' => __( 'Послуги', 'theme-text-domain' ),
+					'id'    => 'home_page_services_tab',
+					'type'  => 'tab',
+				),
+				array(
+					'label' => __( 'Показувать Послугу..?', 'theme-text-domain' ),
+					'id'    => 'home_page_services_show',
+					'type'  => 'on-off',
+					'desc'  => sprintf( __( 'Показувать чи не показувать Переваги', 'theme-text-domain' ), '<code>on</code>' ),
+					'std'   => 'off',
+				),	
+				array(
+					'id'           => 'home_page_services_list',
+					'label'        => __( 'Переваги', 'theme-text-domain' ),
+					'type'         => 'list-item',
+					'condition'    => 'home_page_services_show:is(on)',
+					'settings'     => array(
+						array(
+							'id'           => 'home_page_services_post_type_select',
+							'label'        => __( 'Послуги', 'theme-text-domain' ),
+							'desc'         => '',
+							'type'         => 'custom-post-type-select',
+							'post_type'    => 'biz_nes_servise',
+						),
+					)
+				)
+			),
+
+		
+	);
+
+
+	$meta_box_services = array(
+		'id'       => 'services_meta_box',
+		'title'    => __( 'Налаштування послуг', 'theme-text-domain' ),
 		'desc'     => '',
-		'pages'    => array( 'page' ),
+		'pages'    => array( 'biz_nes_servise' ),
 		'context'  => 'normal',
 		'priority' => 'high',
 		'fields'   => array(
-			array(
-				'label' => __( 'Слайдер', 'theme-text-domain' ),
-				'id'    => 'home_page_slider_tab',
-				'type'  => 'tab',
-			),
-			array(
-				'label' => __( 'Показувать слайдер..?', 'theme-text-domain' ),
-				'id'    => 'home_page_slider_show',
-				'type'  => 'on-off',
-				'desc'  => sprintf( __( 'Поазувать чи не показувать слайдер', 'theme-text-domain' ), '<code>on</code>' ),
-				'std'   => 'off',
-			),	
-			array(
-				'id'           => 'home_page_slider_list_item',
-				'label'        => __( 'Слайдер', 'theme-text-domain' ),
-				'type'         => 'list-item',
-				'condition'    => 'home_page_slider_show:is(on)',
-				'settings'     => array(
-					array(
-						'id'           => 'home_page_slider_name',
-						'label'        => __( 'Назва слайдеру', 'theme-text-domain' ),
-						'type'         => 'text',
-					),
-					array(
-						'id'           => 'home_page_slider_upload',
-						'label'        => __( 'Завантажте слайдер', 'theme-text-domain' ),
-						'desc'         => '',
-						'type'         => 'upload',
-					),
-				)
-			),
-			array(
-				'label' => __( 'Переваги', 'theme-text-domain' ),
-				'id'    => 'home_page_advansed_tab',
-				'type'  => 'tab',
-			),
-			array(
-				'label' => __( 'Показувать Переваги..?', 'theme-text-domain' ),
-				'id'    => 'home_page_advansed_show',
-				'type'  => 'on-off',
-				'desc'  => sprintf( __( 'Поазувать чи не показувать Переваги', 'theme-text-domain' ), '<code>on</code>' ),
-				'std'   => 'off',
-			),	
-			array(
-				'id'           => 'home_page_advansed_list',
-				'label'        => __( 'Переваги', 'theme-text-domain' ),
-				'type'         => 'list-item',
-				'condition'    => 'home_page_advansed_show:is(on)',
-				'settings'     => array(
-				array(
-					'id'           => 'home_page_advansed_icon',
-					'label'        => 'Вкажіть іконку',
-					'type'         => 'text',
-					'desc' 		   => 'Додайте до опису іконку у форматі "fa-globe", детальний опис іконок
-					на сайті <a href="https://fontawesome.com/icons?d=gallery">fontawesome.com</a> ',
-				),
-				array(
-					'id'           => 'home_page_advansed_name',
-					'label'        => 'Вкажіть перевагу',
-					'type'         => 'text',
-					'desc' 		   => 'Додайте назву переваги для відображення',
-				),
-				array(
-					'id'           => 'home_page_advansed_descrip',
-					'label'        => 'Вкажіть перевагу',
-					'type'         => 'textarea',
-					'desc' 		   => 'Додайте опис переваги',
-				),
-				array(
-					'id'           => 'home_page_advansed_link',
-					'label'        => 'Вкажіть силку для ознайомлення переваги',
-					'type'         => 'text',
-				),
-
-					
-				)
-			),
 		
-		)
+			array(
+				'label' => __( 'Іконка', 'theme-text-domain' ),
+				'id'    => 'services_icon',
+				'type'  => 'text',
+				'desc'  => __( '', 'theme-text-domain' ),
+			),
+			array(
+				'label' => __('Ціна', 'theme-text-domain' ),
+				'id'    => 'services_price',
+				'type'  => 'text',
+				'desc'  => __( '', 'theme-text-domain' ),
+			),
+			
+		),
 	);
+
 	/**
 	 * Create a custom meta boxes array that we pass to
 	 * the OptionTree Meta Box API Class.
@@ -169,7 +222,8 @@ function custom_meta_boxes() {
 	 * ot_register_meta_box() function.
 	 */
 	if ( function_exists( 'ot_register_meta_box' ) ) {
-	ot_register_meta_box( $my_meta_box );
+	//ot_register_meta_box( $my_meta_box );
+	ot_register_meta_box( $meta_box_services);
 
 		/**умова виведення мета-бокса на певну сторінку */
 		$post_id = isset( $_GET['post'] ) ? $_GET['post'] : ( isset( $_POST['post_ID'] ) ? $_POST['post_ID'] : 0 );
