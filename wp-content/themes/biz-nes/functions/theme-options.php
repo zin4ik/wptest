@@ -148,7 +148,7 @@ function custom_theme_options() {
 
 			),
 
-			/*примеры настроек*/
+/*==========примеры настроек*/
 			array(
 				'id'           => 'demo_background',
 				'label'        => __( 'Background', 'theme-text-domain' ),

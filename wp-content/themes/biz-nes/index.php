@@ -52,7 +52,7 @@ get_header();
             </div>
           </div>
         </section>
-        <section>
+        <!-- <section>
           <div class="container banner_wr">
             <ul class="banner">
               <li>
@@ -77,7 +77,7 @@ get_header();
               </li>
             </ul>
           </div>
-        </section>
+        </section> -->
         <section class="well ins1">
           <div class="container hr">
             <ul class="row product-list">

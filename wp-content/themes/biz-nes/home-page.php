@@ -8,6 +8,7 @@ get_header();
 <?php 
 $sliders_main = get_post_meta($post->ID, 'home_page_slider_list_item',true);
 $advansed_main = get_post_meta($post->ID, 'home_page_advansed_list',true);
+$services_main = get_post_meta($post->ID, 'home_page_advansed_list',true);
 
 // echo'<pre>';
 // print_r($advansed_main);
@@ -64,13 +65,31 @@ $advansed_main = get_post_meta($post->ID, 'home_page_advansed_list',true);
                 <h3><?php echo $advansed_name?></h3>
                 <p><?php echo $advansed_descrip?></p><a href="<?php echo $advansed_link?>"></a>
               </li>
-<?php endforeach;?>
+			<?php endforeach;?>
             </ul>
 			
           </div>
 		  
         </section>
 		<?php endif;?>
+<!-- =============product-list============== -->
+		<section class="well ins1">
+          <div class="container hr">
+            <ul class="row product-list">
+              <!-- <li class="grid_6"> -->
+                <li class="grid_6 box wow fadeInRight product-list_services">  
+                  <div class="box_aside">
+                    <div class="icon fa-comments"></div>
+                  </div> <!--/box_aside-->
+                  <div class="box_cnt__no-flow">
+                    <h3><a href="#">Incididunt ut labore et dolore</a></h3>
+                    <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolor.</p>
+                  </div> <!--/box_cnt__no-flow-->
+                </li> <!--/box wow fadeInRight-->
+               
+            </ul>
+          </div>
+        </section>
 		</main><!-- #main -->
 <?php
 get_footer();
