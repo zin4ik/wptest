@@ -63,6 +63,9 @@ if ( ! function_exists( 'biz_nes_setup' ) ) :
 		) );
 
 		include (get_template_directory().'/inc/custom_post_awards.php');
+		include (get_template_directory().'/inc/custom_post_reviews.php');
+		include (get_template_directory().'/inc/custom_post_servise.php');
+
 	}
 endif;
 

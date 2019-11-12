@@ -1,11 +1,11 @@
 <?php 
 // Register Custom Post Type
-function custom_post_type_awords() {
+function custom_post_type_servise() {
 
 	$labels = array(
-		'name'                  => 'Нагороди',
-		'singular_name'         => 'Нагорода',
-		'menu_name'             => 'Нагороди',
+		'name'                  => 'Послуги',
+		'singular_name'         => 'Послуга',
+		'menu_name'             => 'Послуги',
 		'archives'              => 'Item Archives',
 		'attributes'            => 'Item Attributes',
 		'parent_item_colon'     => 'Parent Item:',
@@ -17,36 +17,36 @@ function custom_post_type_awords() {
 		'update_item'           => 'Обновити',
 		'view_item'             => 'Перегляд',
 		'view_items'            => 'Переглянути всі',
+
 	);
 	$rewrite = array(
-		'slug'                  => 'awards',
+		'slug'                  => 'servise',
 		'with_front'            => true,
 		'pages'                 => false,
 		'feeds'                 => false,
 	);
 	$args = array(
-		'label'                 => 'Нагорода',
+		'label'                 => 'Послуга',
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
 		'show_in_menu'          => true,
-		'menu_position'         => 5,
-		'menu_icon'             => 'dashicons-awards',
+		'menu_position'         => 6,
+		'menu_icon'             => 'dashicons-admin-tools',
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
 		'has_archive'           => false,
 		'exclude_from_search'   => true,
 		'publicly_queryable'    => true,
-		'query_var'             => 'awords',
+		'query_var'             => 'servise',
 		'rewrite'               => $rewrite,
-		'capability_type'       => 'page',
 	);
-	register_post_type( 'biz_nes_awords', $args );
+	register_post_type( 'biz_nes_servise', $args );
 
 }
-add_action( 'init', 'custom_post_type_awords', 0 );
+add_action( 'init', 'custom_post_type_servise', 0 );
 
 ?>
