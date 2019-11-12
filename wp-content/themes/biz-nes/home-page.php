@@ -8,10 +8,10 @@ get_header();
 <?php 
 $sliders_main = get_post_meta($post->ID, 'home_page_slider_list_item',true);
 $advansed_main = get_post_meta($post->ID, 'home_page_advansed_list',true);
-$services_main = get_post_meta($post->ID, 'home_page_advansed_list',true);
+$services_main = get_post_meta($post->ID, 'home_page_services_list',true);
 
 // echo'<pre>';
-// print_r($advansed_main);
+// print_r($services_main);
 // echo'<pre>';
  ?>
 
@@ -77,16 +77,25 @@ $services_main = get_post_meta($post->ID, 'home_page_advansed_list',true);
           <div class="container hr">
             <ul class="row product-list">
               <!-- <li class="grid_6"> -->
+				  <?php 
+				  foreach($services_main as $services_id):
+					$service = get_post( $services_id['home_page_services_post_type_select'], ARRAY_A );
+				//  print_r($service);
+				 ?>
+
                 <li class="grid_6 box wow fadeInRight product-list_services">  
                   <div class="box_aside">
                     <div class="icon fa-comments"></div>
                   </div> <!--/box_aside-->
                   <div class="box_cnt__no-flow">
-                    <h3><a href="#">Incididunt ut labore et dolore</a></h3>
-                    <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolor.</p>
+                    <h3><a href="<?php get_the_permalink($service['ID']);?>"><?php echo $service['post_title'];?></a></h3>
+					<p><?php echo wp_trim_words($service['post_content'], 7, '...');?></p>
+					
+					<!-- https://www.youtube.com/watch?v=9x4TglmhOBw -->
+
                   </div> <!--/box_cnt__no-flow-->
                 </li> <!--/box wow fadeInRight-->
-               
+				 <?php endforeach;?>
             </ul>
           </div>
         </section>

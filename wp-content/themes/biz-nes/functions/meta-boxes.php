@@ -114,7 +114,7 @@ function custom_meta_boxes() {
 				),	
 				array(
 					'id'           => 'home_page_services_list',
-					'label'        => __( 'Переваги', 'theme-text-domain' ),
+					'label'        => __( 'Послуги', 'theme-text-domain' ),
 					'type'         => 'list-item',
 					'condition'    => 'home_page_services_show:is(on)',
 					'settings'     => array(
