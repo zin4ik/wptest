@@ -61,7 +61,8 @@ if ( ! function_exists( 'biz_nes_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
-
+//========обрізання картинки під розмір 100px*100px + plugin Force Regenerate Thumbnails 
+		add_image_size('service_img', 100, 100, true);
 // ======= підключення нових типів записив custom_page ===
 		include (get_template_directory().'/inc/custom_post_awards.php');
 		include (get_template_directory().'/inc/custom_post_reviews.php');

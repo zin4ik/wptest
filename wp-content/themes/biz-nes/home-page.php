@@ -63,7 +63,8 @@ $services_main = get_post_meta($post->ID, 'home_page_services_list',true);
               <li>
                 <div class="<?php echo $advansed_icon?>"></div>
                 <h3><?php echo $advansed_name?></h3>
-                <p><?php echo $advansed_descrip?></p><a href="<?php echo $advansed_link?>"></a>
+                <p><?php echo wp_trim_words($advansed_descrip, 25, '...');?></p>
+                <a href="<?php echo $advansed_link?>"></a>
               </li>
 			<?php endforeach;?>
             </ul>
@@ -80,16 +81,25 @@ $services_main = get_post_meta($post->ID, 'home_page_services_list',true);
 				  <?php 
 				  foreach($services_main as $services_id):
 					$service = get_post( $services_id['home_page_services_post_type_select'], ARRAY_A );
-				//  print_r($service);
+	 print_r($service);
 				 ?>
 
                 <li class="grid_6 box wow fadeInRight product-list_services">  
                   <div class="box_aside">
-                    <div class="icon fa-comments"></div>
+                  <?php 
+                  if (get_post_meta($service['ID'], 'services_icon', true)):?>
+ <!-- ============div icon============ -->
+                  <div class="icon <?php echo get_post_meta($service['ID'], 'services_icon', true)?>"></div>
+<!-- ============/div icon============ -->
+<!-- ============/img============ -->
+                  <?php else :
+                  echo get_the_post_thumbnail( $service['ID'],'service_img' );
+                  endif;?>
+                    
                   </div> <!--/box_aside-->
                   <div class="box_cnt__no-flow">
                     <h3><a href="<?php get_the_permalink($service['ID']);?>"><?php echo $service['post_title'];?></a></h3>
-					<p><?php echo wp_trim_words($service['post_content'], 7, '...');?></p>
+		            	<p><?php echo wp_trim_words($service['post_content'], 10, '...');?></p>
 					
 					<!-- https://www.youtube.com/watch?v=9x4TglmhOBw -->
 
