@@ -78,14 +78,17 @@ $services_main = get_post_meta($post->ID, 'home_page_services_list',true);
           <div class="container hr">
             <ul class="row product-list">
               <!-- <li class="grid_6"> -->
-				  <?php 
+             
+          <?php 
+          $delay_wow=0;
 				  foreach($services_main as $services_id):
 					$service = get_post( $services_id['home_page_services_post_type_select'], ARRAY_A );
-	 print_r($service);
+  // print_r($service);
+          $delay_wow++;
 				 ?>
 
-                <li class="grid_6 box wow fadeInRight product-list_services">  
-                  <div class="box_aside">
+                <li data-wow-delay="0.<?php echo $delay_wow?>s" class="grid_6 box wow fadeInRight product-list_services">  
+                  <div  class="box_aside">
                   <?php 
                   if (get_post_meta($service['ID'], 'services_icon', true)):?>
  <!-- ============div icon============ -->

@@ -70,7 +70,34 @@ jQuery(document).ready(function($){
  ========================================================*/
  jQuery(document).ready(function ($) {
     $('#stuck_container').TMStickUp({})
+
+
+    // WOW
+    var o = $('html');
+    if ((navigator.userAgent.toLowerCase().indexOf('msie') == -1 ) || (isIE() && isIE() > 9)) {
+            if (o.hasClass('desktop')) {
+                new WOW().init();
+            };
+        }
 });
+
+/* WOW
+ ========================================================*/
+// ;
+// (function ($) {
+//     var o = $('html');
+
+//     if ((navigator.userAgent.toLowerCase().indexOf('msie') == -1 ) || (isIE() && isIE() > 9)) {
+//         if (o.hasClass('desktop')) {
+//             include(urlJs+'js/wow.js');
+
+//             $(document).ready(function () {
+//                 new WOW().init();
+//             });
+//         }
+//     }
+// })(jQuery);
+
 
 /* ToTop
  ========================================================*/
@@ -163,22 +190,6 @@ jQuery(document).ready(function($){
 // })
 // (jQuery);
 
-/* WOW
- ========================================================*/
-// ;
-// (function ($) {
-//     var o = $('html');
-
-//     if ((navigator.userAgent.toLowerCase().indexOf('msie') == -1 ) || (isIE() && isIE() > 9)) {
-//         if (o.hasClass('desktop')) {
-//             include(urlJs+'js/wow.js');
-
-//             $(document).ready(function () {
-//                 new WOW().init();
-//             });
-//         }
-//     }
-// })(jQuery);
 
 /* Contact Form
  ========================================================*/
