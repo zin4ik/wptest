@@ -126,13 +126,34 @@ function custom_meta_boxes() {
 							'post_type'    => 'biz_nes_servise',
 						),
 					)
-				)
+				),
+				array(
+					'label' => __( 'Про нас', 'theme-text-domain' ),
+					'id'    => 'home_page_about_tab',
+					'type'  => 'tab',
+				),
+				array(
+					'label' => __( 'Показувать розділ Про нас..?', 'theme-text-domain' ),
+					'id'    => 'home_page_about_show',
+					'type'  => 'on-off',
+					'desc'  => sprintf( __( 'Показувать чи не показувать Про нас на головній сторінці', 'theme-text-domain' ), '<code>on</code>' ),
+					'std'   => 'on',
+				),	
+				array(
+					'id'           => 'home_about_page_select',
+					'label'        => __( 'Сторінка  Про нас', 'theme-text-domain' ),
+					'std'          => '',
+					'type'         => 'page-select',
+					'section'      => 'option_types',
+					'condition'    => 'home_page_about_show:is(on)',
+				),
+
 			),
 
 		
 	);
 
-
+/**записи в блоці "Послуги" */
 	$meta_box_services = array(
 		'id'       => 'services_meta_box',
 		'title'    => __( 'Налаштування послуг', 'theme-text-domain' ),

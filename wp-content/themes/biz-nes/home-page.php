@@ -104,10 +104,16 @@ $services_main = get_post_meta($post->ID, 'home_page_services_list',true);
         <section class="well1">
           <div class="container">
             <div class="row">
+            <!-- About -->
               <div class="grid_4">
+              <?php if (get_post_meta($post->ID, 'home_about_page_select', true)):
+                $about = get_post( get_post_meta($post['ID'], 'home_about_page_select', true), ARRAY_A );
+              endif;
+              print_r($about);?>
                 <h2>About</h2><img src="images/page-1_img01.jpg" alt="">
                 <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p><a href="#" class="btn">Read more</a>
               </div>
+              <!-- Services -->
               <div class="grid_4">
                 <h2>Services</h2>
                 <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
@@ -123,6 +129,7 @@ $services_main = get_post_meta($post->ID, 'home_page_services_list',true);
                   <li><a href="#">Et dolore magna aliqua</a></li>
                 </ul><a href="#" class="btn">Read more</a>
               </div>
+              <!-- Help center -->
               <div class="grid_4">
                 <div class="info-box">
                   <h2 class="fa-comment">Help center</h2>
