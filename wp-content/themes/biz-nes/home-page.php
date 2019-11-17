@@ -112,14 +112,19 @@ $services_main = get_post_meta($post->ID, 'home_page_services_list',true);
               // print_r($about);?>
                 <h2><?php echo $about['post_title'];?></h2>
                 <?php echo get_the_post_thumbnail( get_post_meta($post->ID, 'home_about_page_select',true),'large');?>
-    
                 <p><?php echo wp_trim_words($about['post_content'],50,'...');?></p>
                 <a href="<?php get_the_permalink($about['ID']);?>" class="btn">Read more</a>
               </div>
               <!-- Services -->
               <div class="grid_4">
                 <h2>Services</h2>
-                <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                <?php
+                 if (get_post_meta($post->ID, 'home_services_desc', true)):?>
+                 <p><?php echo get_post_meta($post->ID, 'home_services_desc', true);?></p>
+                 <?php
+              endif;
+             ?>
+                
                 <ul class="marked-list">
                   <li><a href="#">Lorem ipsum dolor sit amet </a></li>
                   <li><a href="#">Conse ctetur adipisicing</a></li>

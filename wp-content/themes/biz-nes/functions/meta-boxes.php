@@ -127,6 +127,24 @@ function custom_meta_boxes() {
 						),
 					)
 				),
+				/**Потрібно підключити add_filter в function.php для выдображення 
+				 * візуального редактора
+				 */
+				array(
+					'id'=>'home_services_desc',
+					'label'=>'Короткий опис',
+					'desc'=>'',
+					'type'=>'textarea',
+
+				),
+				array(
+					'id'           => 'home_services_numeric_slider',
+					'label'        => __( 'Кількість статей', 'theme-text-domain' ),
+					'desc'         => __( '-1 всі статті, 0 жодної, 1,2.. кількість статей ', 'theme-text-domain' ),
+					'std'          => '',
+					'type'         => 'numeric-slider',
+					'min_max_step' => '-1,20,1',
+				),
 				array(
 					'label' => __( 'Про нас', 'theme-text-domain' ),
 					'id'    => 'home_page_about_tab',

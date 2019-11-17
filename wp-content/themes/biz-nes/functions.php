@@ -88,12 +88,31 @@ add_filter( 'ot_show_new_layout', '__return_false' );
 add_filter( 'ot_show_pages', '__return_true' );
 require( trailingslashit( get_template_directory() ) . 'functions/meta-boxes.php' );
 require( trailingslashit( get_template_directory() ) . 'functions/theme-options.php' );
+/**
+ * Добавляе в Theme options візуальний редактор до textarea
+ *  - 'home_services_desc' - це 'id'=>'home_services_desc' в meta-boxes
+ */
+add_filter( 'ot_override_forced_textarea_simple', 'service_desc_filter_function',10,2) ;
+	function service_desc_filter_function($value, $id){
+		if ($id =='home_services_desc'){
+			$value=true;
+		}
+		elseif($id =='home_one_screen_title'){
+			$value=true;
+		}
+		return $value;
+	}
+
+
 
 function theme_options_parent($parent){
 	$parent='';
 	return $parent;
 }
 add_filter( 'ot_theme_options_parent_slug','theme_options_parent',20);
+
+
+
 
 /**
  * Required: include OptionTree.
