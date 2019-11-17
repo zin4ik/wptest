@@ -48,7 +48,7 @@ $services_main = get_post_meta($post->ID, 'home_page_services_list',true);
             <ul class="banner">
 		<?php	
 		foreach($advansed_main as $advansed):
-	 	    $advansed_icon=$advansed[home_page_advansed_icon] ? $advansed[home_page_advansed_icon]: '' ;
+	 	  $advansed_icon=$advansed[home_page_advansed_icon] ? $advansed[home_page_advansed_icon]: '' ;
 			$advansed_name=$advansed[home_page_advansed_name] ? $advansed[home_page_advansed_name]: '';
 			$advansed_descrip=$advansed[home_page_advansed_descrip] ? $advansed[home_page_advansed_descrip]: '';
 			$advansed_link=$advansed[home_page_advansed_link] ? $advansed[home_page_advansed_link]: '';
@@ -107,11 +107,14 @@ $services_main = get_post_meta($post->ID, 'home_page_services_list',true);
             <!-- About -->
               <div class="grid_4">
               <?php if (get_post_meta($post->ID, 'home_about_page_select', true)):
-                $about = get_post( get_post_meta($post['ID'], 'home_about_page_select', true), ARRAY_A );
+                $about = get_post( get_post_meta($post->ID, 'home_about_page_select', true),ARRAY_A );
               endif;
-              print_r($about);?>
-                <h2>About</h2><img src="images/page-1_img01.jpg" alt="">
-                <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p><a href="#" class="btn">Read more</a>
+              // print_r($about);?>
+                <h2><?php echo $about['post_title'];?></h2>
+                <?php echo get_the_post_thumbnail( get_post_meta($post->ID, 'home_about_page_select',true),'large');?>
+    
+                <p><?php echo wp_trim_words($about['post_content'],50,'...');?></p>
+                <a href="<?php get_the_permalink($about['ID']);?>" class="btn">Read more</a>
               </div>
               <!-- Services -->
               <div class="grid_4">
