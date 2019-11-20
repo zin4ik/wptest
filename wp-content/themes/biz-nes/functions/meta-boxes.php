@@ -135,7 +135,6 @@ function custom_meta_boxes() {
 					'label'=>'Короткий опис',
 					'desc'=>'',
 					'type'=>'textarea',
-
 				),
 				array(
 					'id'           => 'home_services_numeric_slider',
@@ -144,6 +143,20 @@ function custom_meta_boxes() {
 					'std'          => '',
 					'type'         => 'numeric-slider',
 					'min_max_step' => '-1,20,1',
+				),
+				array(
+					'id'=>'home_services_link',
+					'label'=>'Силка на всі послуги (сторінка послуг)',
+					'std' => '#',
+					'desc'=>'',
+					'type'=>'text',
+				),
+				array(
+					'id'=>'home_services_btn',
+					'label'=>'Назва кнопки за посиланням',
+					'std' => 'Детальніше',
+					'desc'=>'',
+					'type'=>'text',
 				),
 				array(
 					'label' => __( 'Про нас', 'theme-text-domain' ),

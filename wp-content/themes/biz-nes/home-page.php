@@ -48,10 +48,10 @@ $services_main = get_post_meta($post->ID, 'home_page_services_list',true);
             <ul class="banner">
 		<?php	
 		foreach($advansed_main as $advansed):
-	 	  $advansed_icon=$advansed[home_page_advansed_icon] ? $advansed[home_page_advansed_icon]: '' ;
-			$advansed_name=$advansed[home_page_advansed_name] ? $advansed[home_page_advansed_name]: '';
-			$advansed_descrip=$advansed[home_page_advansed_descrip] ? $advansed[home_page_advansed_descrip]: '';
-			$advansed_link=$advansed[home_page_advansed_link] ? $advansed[home_page_advansed_link]: '';
+	 	  $advansed_icon=$advansed['home_page_advansed_icon'] ? $advansed['home_page_advansed_icon']: '' ;
+			$advansed_name=$advansed['home_page_advansed_name'] ? $advansed['home_page_advansed_name']: '';
+			$advansed_descrip=$advansed['home_page_advansed_descrip'] ? $advansed['home_page_advansed_descrip']: '';
+			$advansed_link=$advansed['home_page_advansed_link'] ? $advansed['home_page_advansed_link']: '';
 			?>
               <li>
                 <div class="<?php echo $advansed_icon?>"></div>
@@ -122,20 +122,32 @@ $services_main = get_post_meta($post->ID, 'home_page_services_list',true);
                  if (get_post_meta($post->ID, 'home_services_desc', true)):?>
                  <p><?php echo get_post_meta($post->ID, 'home_services_desc', true);?></p>
                  <?php
-              endif;
-             ?>
-                
+              endif;  
+              $post_per_service=get_post_meta($post->ID, 'home_services_numeric_slider', true);
+              $arg=array(
+                'post_type'=>'biz_nes_servise',
+                'posts_per_page'=>$post_per_service,
+              );
+              $service_query= new WP_Query($arg);
+
+              if ($service_query->have_posts()):?>
                 <ul class="marked-list">
-                  <li><a href="#">Lorem ipsum dolor sit amet </a></li>
-                  <li><a href="#">Conse ctetur adipisicing</a></li>
-                  <li><a href="#">Elit sed do eiusmod tempor</a></li>
-                  <li><a href="#">Incididunt ut labore</a></li>
-                  <li><a href="#">Et dolore magna aliqua</a></li>
-                  <li><a href="#">Ut enim ad minim veniam</a></li>
-                  <li><a href="#">Quis nostrud exercitation</a></li>
-                  <li><a href="#">Incididunt ut labore</a></li>
-                  <li><a href="#">Et dolore magna aliqua</a></li>
-                </ul><a href="#" class="btn">Read more</a>
+               <?php while($service_query->have_posts()):
+                $service_query->the_post()?>
+               <li>
+               <a href="<?php echo get_permalink();?>">
+               <?php echo the_title();?></a>
+               </li>
+               <?php endwhile;
+               wp_reset_postdata();?>
+               </ul>
+                <?php endif;
+                $services_all_link=get_post_meta($post->ID, 'home_services_link', true) ?
+                 get_post_meta($post->ID, 'home_services_link', true): '';
+                $services_link_btn=get_post_meta($post->ID, 'home_services_btn', true) ?
+                 get_post_meta($post->ID, 'home_services_btn', true): '';?>
+                
+                <a href="<?php echo $services_all_link; ?>" class="btn"><?php echo $services_link_btn; ?></a> 
               </div>
               <!-- Help center -->
               <div class="grid_4">
