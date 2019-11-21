@@ -52,6 +52,28 @@ jQuery(document).ready(function($){
          mobileNavHover: false,
          fx: 'simpleFade'
      })
+
+     /* Owl Carousel
+========================================================*/
+    var o = $('.owl-carousel');
+    if (o.length > 0) {
+            o.owlCarousel({
+                margin: 30,
+                smartSpeed: 450,
+                loop: true,
+                dots: true,
+                dotsEach: 1,
+                nav: false,
+                navClass: ['owl-prev fa fa-angle-left', 'owl-next fa fa-angle-right'],
+                responsive: {
+                    0: { items: 1 },
+                    768: { items: 1},
+                    980: { items: 1}
+                }
+            });
+    };
+
+
  });
 
 

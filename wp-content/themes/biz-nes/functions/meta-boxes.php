@@ -244,6 +244,37 @@ function custom_meta_boxes() {
 		),
 	);
 
+/**записи у Відгуках */
+	$meta_box_services = array(
+		'id'       => 'review_meta_box',
+		'title'    => __( 'Налаштування Відгуків', 'theme-text-domain' ),
+		'desc'     => '',
+		'pages'    => array( 'biz_nes_reviews' ),
+		'context'  => 'normal',
+		'priority' => 'high',
+		'fields'   => array(
+		
+			array(
+				'label' => __( 'Імя', 'theme-text-domain' ),
+				'id'    => 'review_name',
+				'type'  => 'text',
+				'desc'  => __( '', 'theme-text-domain' ),
+			),
+			array(
+				'label' => __('Посада', 'theme-text-domain' ),
+				'id'    => 'review_regal',
+				'type'  => 'text',
+				'desc'  => __( '', 'theme-text-domain' ),
+			),
+			array(
+				'label' => __('Посилання', 'theme-text-domain' ),
+				'id'    => 'review_link',
+				'type'  => 'text',
+				'desc'  => __( '', 'theme-text-domain' ),
+			),
+			
+		),
+	);
 	/**
 	 * Create a custom meta boxes array that we pass to
 	 * the OptionTree Meta Box API Class.
@@ -310,6 +341,7 @@ function custom_meta_boxes() {
 	if ( function_exists( 'ot_register_meta_box' ) ) {
 	//ot_register_meta_box( $my_meta_box );
 	ot_register_meta_box( $meta_box_services);
+	ot_register_meta_box($meta_box_services);
 
 		/**умова виведення мета-бокса на певну сторінку */
 		$post_id = isset( $_GET['post'] ) ? $_GET['post'] : ( isset( $_POST['post_ID'] ) ? $_POST['post_ID'] : 0 );
