@@ -57,6 +57,7 @@ jQuery(document).ready(function($){
 ========================================================*/
     var o = $('.owl-carousel');
     if (o.length > 0) {
+        $(document).ready(function () {
             o.owlCarousel({
                 margin: 30,
                 smartSpeed: 450,
@@ -71,6 +72,7 @@ jQuery(document).ready(function($){
                     980: { items: 1}
                 }
             });
+        });
     };
 
 

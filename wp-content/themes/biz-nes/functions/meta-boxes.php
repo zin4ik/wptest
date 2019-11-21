@@ -211,6 +211,18 @@ function custom_meta_boxes() {
 					'desc'  => '',
 					'type'  => 'text',
 				),
+				array(
+					'label' => __( 'Відгуки', 'theme-text-domain' ),
+					'id'    => 'home_page_review_tab',
+					'type'  => 'tab',
+				),
+				array(
+					'label' => __( 'Показувать розділ Відгуки..?', 'theme-text-domain' ),
+					'id'    => 'home_page_review_show',
+					'type'  => 'on-off',
+					'desc'  => sprintf( __( 'Показувать чи не показувать розділ Відгуки на головній сторінці', 'theme-text-domain' ), '<code>on</code>' ),
+					'std'   => 'on',
+				),	
 
 
 			),

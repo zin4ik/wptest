@@ -186,52 +186,56 @@ $services_main = get_post_meta($post->ID, 'home_page_services_list',true);
                     
                   </dl>
                 </div>
+<!--============carusel review================-->
                 <div class="owl-carousel">
+                <?php
+                if (get_post_meta($post->ID, 'home_page_review_show', true)!='off'):
+                 $arg_review = array(
+                    'post_type'   => 'biz_nes_reviews',
+                    'post_status' => 'publish',
+                    'order'       => 'DESC',
+                    'orderby'     => -1,
+                  );
+                  $query_review = new WP_Query($arg_review);
+                  if ($query_review->have_posts()) :
+                    while($query_review->have_posts()) :
+                       $query_review->the_post();
+                  ?>
+
                   <div class="item">
+                 
                     <blockquote class="box">
-                      <div class="box_aside"><img src="images/page-1_img02.jpg" alt=""></div>
+                      <div class="box_aside">
+                      <?php echo get_the_post_thumbnail($post->ID, array(80,80));?>
+                      </div> <!--/box_aside-->
                       <div class="box_cnt__no-flow">
                         <p>
-                          <q>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</q>
+                          <q><?php echo wp_trim_words(get_the_content(),10,'...');?></q>
                         </p>
-                        <cite><a href="#">Incididunt ut labor</a></cite>
+                        <cite>
+                        <?php if(get_post_meta($post->ID, 'review_regal', true)):?>
+                        <span class="review_regal"> <?php echo get_post_meta($post->ID, 'review_regal', true); ?></span>
+                    <?php endif;?>
+                    <?php if(get_post_meta($post->ID, 'review_name', true) || get_post_meta($post->ID, 'review_link', true) ):?>
+                        <?php if (get_post_meta($post->ID, 'review_link', true)):?>
+                        <a href="<?php echo get_post_meta($post->ID, 'review_link', true);?>">
+                       <span><?php echo get_post_meta($post->ID, 'review_name', true); ?></span>
+                        </a>
+                        <?php else:?>
+                          <span><?php echo get_post_meta($post->ID, 'review_name', true); ?></span>
+                        <?php endif;?>
+                        <?php endif;?>
+                        </cite>
                       </div>
                     </blockquote>
-                  </div>
-                  <div class="item">
-                    <blockquote class="box">
-                      <div class="box_aside"><img src="images/page-1_img03.jpg" alt=""></div>
-                      <div class="box_cnt__no-flow">
-                        <p>
-                          <q>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</q>
-                        </p>
-                        <cite><a href="#">Incididunt ut labor</a></cite>
-                      </div>
-                    </blockquote>
-                  </div>
-                  <div class="item">
-                    <blockquote class="box">
-                      <div class="box_aside"><img src="images/page-1_img04.jpg" alt=""></div>
-                      <div class="box_cnt__no-flow">
-                        <p>
-                          <q>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</q>
-                        </p>
-                        <cite><a href="#">Incididunt ut labor</a></cite>
-                      </div>
-                    </blockquote>
-                  </div>
-                  <div class="item">
-                    <blockquote class="box">
-                      <div class="box_aside"><img src="images/page-1_img05.jpg" alt=""></div>
-                      <div class="box_cnt__no-flow">
-                        <p>
-                          <q>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</q>
-                        </p>
-                        <cite><a href="#">Incididunt ut labor</a></cite>
-                      </div>
-                    </blockquote>
-                  </div>
-                </div>
+                  </div>  <!--/item-->
+                  <?php 
+                  endwhile;
+                  endif; 
+                   ?>               
+                </div> <!---/owl-carousel-->
+                <?php wp_reset_postdata();
+                   endif;?>
               </div>
             </div>
           </div>
