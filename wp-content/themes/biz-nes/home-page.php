@@ -108,8 +108,7 @@ $services_main = get_post_meta($post->ID, 'home_page_services_list',true);
               <div class="grid_4">
               <?php if (get_post_meta($post->ID, 'home_about_page_select', true)):
                 $about = get_post( get_post_meta($post->ID, 'home_about_page_select', true),ARRAY_A );
-              endif;
-              // print_r($about);?>
+              endif;?>
                 <h2><?php echo $about['post_title'];?></h2>
                 <?php echo get_the_post_thumbnail( get_post_meta($post->ID, 'home_about_page_select',true),'large');?>
                 <p><?php echo wp_trim_words($about['post_content'],50,'...');?></p>
@@ -151,26 +150,40 @@ $services_main = get_post_meta($post->ID, 'home_page_services_list',true);
               </div>
               <!-- Help center -->
               <div class="grid_4">
+              <?php 
+              $services_home_help_work=get_post_meta($post->ID, 'home_help_work', true) ?
+              get_post_meta($post->ID, 'home_help_work', true): '';
+              $services_home_help_sat=get_post_meta($post->ID, 'home_help_sat', true) ?
+              get_post_meta($post->ID, 'home_help_sat', true): '';
+              $services_home_help_sun=get_post_meta($post->ID, 'home_help_sun', true) ?
+              get_post_meta($post->ID, 'home_help_sun', true): '';
+              $services_home_help_support=get_post_meta($post->ID, 'home_help_support', true) ?
+              get_post_meta($post->ID, 'home_help_support', true): '';
+              ?>
                 <div class="info-box">
                   <h2 class="fa-comment">Help center</h2>
                   <hr>
                   <h3>Ask professionals:</h3>
                   <dl>
                     <dt>Monday - Friday:</dt>
-                    <dd>8am-7pm</dd>
+                    <dd><?php echo $services_home_help_work;?></dd>
                   </dl>
                   <dl>
                     <dt>Saturday:</dt>
-                    <dd>8am-5pm</dd>
+                    <dd><?php echo $services_home_help_sat;?></dd>
                   </dl>
                   <dl>
                     <dt>Sunday:</dt>
-                    <dd>1pm-5pm</dd>
+                    <dd><?php echo $services_home_help_sun;?></dd>
                   </dl>
                   <hr>
                   <h3>24/7 Online Support:</h3>
                   <dl>
-                    <dt>800-2345-6789</dt>
+                  <a href="tel:<?php echo str_replace(array(' ','-',')','('), '',
+                   $services_home_help_support)?>">
+                   <?php echo $services_home_help_support ?>
+                   </a>
+                    
                   </dl>
                 </div>
                 <div class="owl-carousel">

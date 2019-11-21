@@ -178,6 +178,40 @@ function custom_meta_boxes() {
 					'section'      => 'option_types',
 					'condition'    => 'home_page_about_show:is(on)',
 				),
+				array(
+					'label' => __( 'Help center', 'theme-text-domain' ),
+					'id'    => 'home_page_help_tab',
+					'type'  => 'tab',
+				),
+				array(
+					'id'	=> 'home_help_work',
+					'label' => 'Час роботи в будні дні',
+					'std'   => '',
+					'desc'  => '',
+					'type'  => 'text',
+				),
+				array(
+					'id'	=> 'home_help_sat',
+					'label' => 'Час роботи в субботу',
+					'std'   => '',
+					'desc'  => '',
+					'type'  => 'text',
+				),
+				array(
+					'id'	=> 'home_help_sun',
+					'label' => 'Час роботи в неділю',
+					'std'   => '',
+					'desc'  => '',
+					'type'  => 'text',
+				),
+				array(
+					'id'	=> 'home_help_support',
+					'label' => 'Телефон підтримки',
+					'std'   => '',
+					'desc'  => '',
+					'type'  => 'text',
+				),
+
 
 			),
 
