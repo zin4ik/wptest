@@ -153,8 +153,8 @@ function custom_theme_options() {
 			),
 			/**Contact */
 			array(
-				'id'           => 'contact_site',
-				'label'        => __( 'Контакти', 'theme-text-domain' ),
+				'id'           => 'contact_adress',
+				'label'        => __( 'Адреса', 'theme-text-domain' ),
 				'desc'         => '',
 				'std'          => '',
 				'type'         => 'text',
@@ -168,14 +168,7 @@ function custom_theme_options() {
 				'type'         => 'text',
 				'section'      => 'contact',
 			),
-			array(
-				'id'           => 'contact_adress',
-				'label'        => __( 'Адреса', 'theme-text-domain' ),
-				'desc'         => '',
-				'std'          => '',
-				'type'         => 'text',
-				'section'      => 'contact',
-			),
+			
 			array(
 				'id'           => 'contact_tel',
 				'label'        => __( 'Телефон', 'theme-text-domain' ),
