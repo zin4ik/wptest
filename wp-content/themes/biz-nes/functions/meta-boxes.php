@@ -16,7 +16,7 @@ add_action( 'admin_init', 'custom_meta_boxes' );
  */
 function custom_meta_boxes() {
 
-
+/** === home_page === */
 	$home_meta_box = array(
 			'id'       => 'home_page_meta_box',
 			'title'    => __( 'Налаштування головної сторінки', 'theme-text-domain' ),
@@ -257,7 +257,7 @@ function custom_meta_boxes() {
 	);
 
 /**записи у Відгуках */
-	$meta_box_services = array(
+	$meta_box_review = array(
 		'id'       => 'review_meta_box',
 		'title'    => __( 'Налаштування Відгуків', 'theme-text-domain' ),
 		'desc'     => '',
@@ -282,6 +282,50 @@ function custom_meta_boxes() {
 				'label' => __('Посилання', 'theme-text-domain' ),
 				'id'    => 'review_link',
 				'type'  => 'text',
+				'desc'  => __( '', 'theme-text-domain' ),
+			),
+			
+		),
+	);
+
+/**Сторінка About  */
+
+	$meta_box_about = array(
+		'id'       => 'about_meta_box',
+		'title'    => __( 'Налаштування сторінки About', 'theme-text-domain' ),
+		'desc'     => '',
+		'pages'    => array( 'page' ),
+		'context'  => 'normal',
+		'priority' => 'high',
+		'fields'   => array(
+			array(
+				'label' => __( 'Швидкі факти', 'theme-text-domain' ),
+				'id'    => 'about_page_quick_facts_tab',
+				'type'  => 'tab',
+			),
+		
+			array(
+				'label' => __( 'Назва', 'theme-text-domain' ),
+				'id'    => 'quick_facts_name',
+				'type'  => 'text',
+				'desc'  => __( '', 'theme-text-domain' ),
+			),
+			array(
+				'label' => __('Дата створення', 'theme-text-domain' ),
+				'id'    => 'quick_facts_date',
+				'type'  => 'text',
+				'desc'  => __( '', 'theme-text-domain' ),
+			),
+			array(
+				'label' => __('Місце створення', 'theme-text-domain' ),
+				'id'    => 'quick_facts_birth',
+				'type'  => 'text',
+				'desc'  => __( '', 'theme-text-domain' ),
+			),
+			array(
+				'label' => __('Історія', 'theme-text-domain' ),
+				'id'    => 'quick_facts_history',
+				'type'  => 'textarea',
 				'desc'  => __( '', 'theme-text-domain' ),
 			),
 			
@@ -353,7 +397,7 @@ function custom_meta_boxes() {
 	if ( function_exists( 'ot_register_meta_box' ) ) {
 	//ot_register_meta_box( $my_meta_box );
 	ot_register_meta_box( $meta_box_services);
-	ot_register_meta_box($meta_box_services);
+	ot_register_meta_box($meta_box_review);
 
 		/**умова виведення мета-бокса на певну сторінку */
 		$post_id = isset( $_GET['post'] ) ? $_GET['post'] : ( isset( $_POST['post_ID'] ) ? $_POST['post_ID'] : 0 );
@@ -362,6 +406,11 @@ function custom_meta_boxes() {
 			ot_register_meta_box( $home_meta_box );
 			
 		}
+		if ( $template_file == 'about-page.php' ){
+			ot_register_meta_box( $meta_box_about );
+			
+		}
+		
 		
 	}
 }

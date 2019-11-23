@@ -8,54 +8,56 @@ get_header();
 ?>
 	
 	<main class="mobile-center">
-        <section>
-          <div class="container hr well1 ins2">
-            <div class="row">
+        <section class="well1 ins3">
+          <div class="container">
+            <h2><?php the_title();?></h2>
+            <div class="row off1">
               <div class="grid_6">
-                <div class="video">
-                  <iframe src="//player.vimeo.com/video/37582125?wmode=transparent" allowfullscreen></iframe>
-                </div>
-              </div>
-              <div class="grid_6">
+                <div class="about_content">
+				<?php
+				while ( have_posts() ) : the_post();
+					the_content();
+
+				endwhile; // End of the loop.
+				?>
+				</div>
+				</div>
+				<div class="grid_6">
                 <h2>Quick facts</h2>
                 <div class="row">
                   <div class="grid_3">
                     <dl class="info">
+					 <?php if(get_post_meta($post->ID,'quick_facts_name', true)) : ?>
                       <dt>Name</dt>
-                      <dd>Business Company</dd>
+                      <dd><?php echo get_post_meta($post->ID,'quick_facts_name', true);?></dd>
+				  <?php endif;?>
+				  <?php if(get_post_meta($post->ID,'quick_facts_date', true)) : ?>
                       <dt>Birth Date</dt>
-                      <dd>June 23, 1987</dd>
+                      <dd><?php echo get_post_meta($post->ID,'quick_facts_date', true);?></dd>
+					<?php endif;?>
+					<?php if(get_post_meta($post->ID,'quick_facts_birth', true)) : ?>
                       <dt>Place of birth</dt>
-                      <dd>Los Angeles, California</dd>
+                      <dd><?php echo get_post_meta($post->ID,'quick_facts_birth', true);?></dd>
+					<?php endif;?>
                     </dl>
                   </div>
                   <div class="grid_3">
                     <dl class="info">
+					<?php if(get_post_meta($post->ID,'quick_facts_history',true)):?>
                       <dt>History</dt>
                       <dd>
-                        <ul>
-                          <li>Lorem ipsum dolor sit 1997-1999 adipis</li>
-                          <li>Pellentesque sed dolor  1995-1999</li>
-                          <li>Aliquam congue nisl 2001-2005</li>
-                          <li>Mauris accumsa vel diam 2006-2008</li>
-                          <li>Sed in lacus ut 2008-2010 enim adipiscing </li>
-                        </ul>
+						<?php $history_content=apply_filters('the_content', get_post_meta($post->ID,'quick_facts_history',true));
+						echo $history_content;?>
                       </dd>
+					<?php endif;?>
                     </dl>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-        <section class="well1 ins3">
-          <div class="container">
-            <h2>Who we are</h2>
-            <div class="row off1">
-              <div class="grid_6">
-                <h3>About us</h3>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Suspendisse commodo tempor sagittis!<br/><br/>In justo est, sollicitudin eu scelerisque pretium, placerat eget elit. Praesent faucibus rutrum odio at rhoncus. Pellentesque vitae tortor id neque fermentum pretium.</p>
-                <hr>
+		</section>
+		<section class="well1 ins3">
+          	<div class="container">
                 <h3>What we offer</h3>
                 <div class="row">
                   <div data-wow-delay="0.2s" class="grid_3 wow fadeInLeft"><img src="images/page-2_img01.jpg" alt=""></div>
