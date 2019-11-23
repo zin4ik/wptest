@@ -52,6 +52,10 @@ function custom_theme_options() {
 				'id'    => 'footer',
 				'title' => __( 'Підвал сайту', 'theme-text-domain' ),
 			),
+			array(
+				'id'    => 'contact',
+				'title' => __( 'Контакти', 'theme-text-domain' ),
+			),
 		),
 		'settings'        => array(
 			/*логотип для шапки*/
@@ -102,17 +106,7 @@ function custom_theme_options() {
 				'type'         => 'text',
 				'section'      => 'header',
 			),
-
-			/**footer */
-			array(
-				'id'           => 'footer_copiright',
-				'label'        => __( 'Копірайт', 'theme-text-domain' ),
-				'desc'         => '',
-				'std'          => '',
-				'type'         => 'text',
-				'section'      => 'footer',
-			),
-/*зворотний звязок*/
+/*зворотний звязок*/  	
 				array(
 				'id'           => 'header_feedback_tab',
 				'label'        => __( 'Зворотній звязок', 'theme-text-domain' ),
@@ -147,6 +141,74 @@ function custom_theme_options() {
 				'condition'    =>'header_feedback_on-off:is(on)',
 
 			),
+
+			/**footer */
+			array(
+				'id'           => 'footer_copiright',
+				'label'        => __( 'Копірайт', 'theme-text-domain' ),
+				'desc'         => '',
+				'std'          => '',
+				'type'         => 'text',
+				'section'      => 'footer',
+			),
+			/**Contact */
+			array(
+				'id'           => 'contact_site',
+				'label'        => __( 'Контакти', 'theme-text-domain' ),
+				'desc'         => '',
+				'std'          => '',
+				'type'         => 'text',
+				'section'      => 'contact',
+			),
+			array(
+				'id'           => 'contact_email',
+				'label'        => __( 'email', 'theme-text-domain' ),
+				'desc'         => '',
+				'std'          => '',
+				'type'         => 'text',
+				'section'      => 'contact',
+			),
+			array(
+				'id'           => 'contact_adress',
+				'label'        => __( 'Адреса', 'theme-text-domain' ),
+				'desc'         => '',
+				'std'          => '',
+				'type'         => 'text',
+				'section'      => 'contact',
+			),
+			array(
+				'id'           => 'contact_tel',
+				'label'        => __( 'Телефон', 'theme-text-domain' ),
+				'desc'         => '',
+				'std'          => '',
+				'type'         => 'text',
+				'section'      => 'contact',
+			),
+			array(
+				'id'           => 'contact_fax',
+				'label'        => __( 'Факс', 'theme-text-domain' ),
+				'desc'         => '',
+				'std'          => '',
+				'type'         => 'text',
+				'section'      => 'contact',
+			),
+			array(
+				'id'           => 'contact_fb',
+				'label'        => __( 'facebook', 'theme-text-domain' ),
+				'desc'         => '',
+				'std'          => '',
+				'type'         => 'text',
+				'section'      => 'contact',
+			),
+			array(
+				'id'           => 'contact_tw',
+				'label'        => __( 'twitter', 'theme-text-domain' ),
+				'desc'         => '',
+				'std'          => '',
+				'type'         => 'text',
+				'section'      => 'contact',
+			),
+		
 
 /*==========примеры настроек*/
 			array(
