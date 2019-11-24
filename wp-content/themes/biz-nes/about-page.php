@@ -58,27 +58,38 @@ get_header();
 		</section>
 		<section class="well1 ins3">
           	<div class="container">
-                <h3>What we offer</h3>
-                <div class="row">
-                  <div data-wow-delay="0.2s" class="grid_3 wow fadeInLeft"><img src="images/page-2_img01.jpg" alt=""></div>
-                  <div class="grid_3 wow fadeInLeft"><img src="images/page-2_img02.jpg" alt=""></div>
+              <div class="grid_12">
+              <?php if (get_post_meta($post->ID,'staff_title', true)) :?>
+                <h3>
+                  <?php echo get_post_meta($post->ID,'staff_title', true);?>
+                </h3>
+              <?php endif; ?>
+               <?php if (get_post_meta($post->ID,'about_staff_desc', true)) :?>
+                <div class="about_staff_desc">
+                  <?php echo get_post_meta($post->ID,'about_staff_desc', true)?>
                 </div>
-                <p>Nam justo elit, dictum id tempus a, ultricies tempus lacus. Nunc purus nibh; eleifend eget facilisis ac, sagittis non tortor. Vivamus eu enim a orci accumsan tincidunt ut ut elit. Vestibulum nisi orci, rutrum ac auctor non, viverra et magna?</p>
-              </div>
-              <div class="grid_6">
-                <h3>Our staff</h3>
-                <div class="row">
-                  <div class="grid_2 wow fadeInRight"><img src="images/page-2_img03.jpg" alt=""><img src="images/page-2_img06.jpg" alt=""></div>
-                  <div data-wow-delay="0.2s" class="grid_2 wow fadeInRight"><img src="images/page-2_img04.jpg" alt=""><img src="images/page-2_img07.jpg" alt=""></div>
-                  <div data-wow-delay="0.4s" class="grid_2 wow fadeInRight"><img src="images/page-2_img05.jpg" alt=""><img src="images/page-2_img08.jpg" alt=""></div>
-                </div>
-                <p>Curabitur facilisis pellentesque pharetra. Donec justo urna, malesuada a viverra ac, pellentesque vitae nunc. Aenean ac leo eget nunc fringilla a non nulla! Nunc orci mi, venenatis quis ultrices vitae, congue non nibh. Nulla bibendum, justo eget ultrices.</p>
+              <?php endif; ?>
+               <!--Gallery-->
+              <?php if (get_post_meta($post->ID,'about_staff_gallery', true)) :
+              ?>
+              <div class="row">
+              <?php 
+              $data_wow_delay=0;
+              $about_staff_gallery = explode(',',get_post_meta($post->ID,'about_staff_gallery',true));
+              foreach($about_staff_gallery as $item):
+                  $img=wp_get_attachment_image_src( $item, 'medium');
+                  $data_wow_delay+=0.1;
+                  ?>                        
+                  <div data-wow-delay="<?php echo $data_wow_delay;?>s" class="grid_2  wow fadeInRight">
+                    <img src="<?php echo $img[0];?>" alt="/">
+                  </div>
+                <?php endforeach;?>
+             </div>  <!--/row--> 
+              <?php endif;?>
                 <hr>
-                <h3>Our advantages</h3>
-                <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Suspendisse commodo tempor sagittis! In justo est, sollicitudin eu scelerisque pretium, placerat eget elit. Praesent faucibus rutrum odio at rhoncus. Pellentesque vitae tortor id neque fermentum pretium.</p>
-              </div>
-            </div>
-          </div>
+              
+            </div>  <!--/grid_12-->
+          </div>  <!--/container-->
         </section>
         <section class="well1 ins3 bg-primary">
           <div class="container">

@@ -298,6 +298,7 @@ function custom_meta_boxes() {
 		'context'  => 'normal',
 		'priority' => 'high',
 		'fields'   => array(
+	/**====Швидкі факти==== */
 			array(
 				'label' => __( 'Швидкі факти', 'theme-text-domain' ),
 				'id'    => 'about_page_quick_facts_tab',
@@ -327,6 +328,32 @@ function custom_meta_boxes() {
 				'id'    => 'quick_facts_history',
 				'type'  => 'textarea',
 				'desc'  => __( '', 'theme-text-domain' ),
+			),
+	/**====Наша команда==== */
+			array(
+				'label' => __( 'Наша команда', 'theme-text-domain' ),
+				'id'    => 'about_page_staff_tab',
+				'type'  => 'tab',
+			),
+		
+			array(
+				'label' => __( 'Заголовок', 'theme-text-domain' ),
+				'id'    => 'staff_title',
+				'type'  => 'text',
+				'desc'  => __( '', 'theme-text-domain' ),
+			),
+			array(
+				'label' => __('Опис', 'theme-text-domain' ),
+				'id'    => 'about_staff_desc',
+				'type'  => 'textarea',
+				'desc'  => __( '', 'theme-text-domain' ),
+			),
+			array(
+				'id'           => 'about_staff_gallery',
+				'label'        => __( 'Gallery', 'theme-text-domain' ),
+				'desc'         => '',
+				'std'          => '',
+				'type'         => 'gallery',
 			),
 			
 		),

@@ -100,6 +100,10 @@ add_filter( 'ot_override_forced_textarea_simple', 'service_desc_filter_function'
 		elseif($id =='home_one_screen_title'){
 			$value=true;
 		}
+		
+		elseif($id =='about_staff_desc'){
+			$value=true;
+		}
 		return $value;
 	}
 
