@@ -226,10 +226,10 @@ function biz_nes_scripts() {
 	wp_enqueue_script( 'biz-nes-jquery-rd-navbar', get_template_directory_uri() . '/acess/js/jquery.rd-navbar.js', array('jquery'), '', true);
 	wp_enqueue_script( 'biz-nes-tmstickup', get_template_directory_uri() . '/acess/js/tmstickup.js', array('jquery'), '', true);
 
-	if (is_page_template('home-page.php')){
+	//if (is_page_template('home-page.php')){
 		wp_enqueue_script( 'biz-nes-camera', get_template_directory_uri() . '/acess/js/camera.js', array('jquery'), '', true);
 		wp_enqueue_script( 'biz-nes-owl-carousel', get_template_directory_uri() . '/acess/js/owl.carousel.min.js', array('jquery'), '', true);
-	}
+	// }
 	wp_enqueue_script( 'biz-nes-wow', get_template_directory_uri() . '/acess/js/wow.js', array('jquery'), '', true);
 	wp_enqueue_script( 'biz-nes-jquery-cookie', get_template_directory_uri() . '/acess/js/jquery.cookie.js', array('jquery'), '', true);
 	wp_enqueue_script( 'biz-nes-jquery-easing-1-3', get_template_directory_uri() . '/acess/js/jquery.easing.1.3.js', array('jquery'), '', true);

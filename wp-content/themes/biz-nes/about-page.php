@@ -91,75 +91,24 @@ get_header();
             </div>  <!--/grid_12-->
           </div>  <!--/container-->
         </section>
+        <!--======Our awards======-->
+ <?php if (get_post_meta($post->ID,'about_page_awards_show', true)!='off'):?>
         <section class="well1 ins3 bg-primary">
           <div class="container">
-            <h2>Our awards</h2>
+          <?php if (get_post_meta($post->ID,'about_page_awards_list', true)): ?>
+            <h2><?php echo get_post_meta($post->ID,'about_page_awards_list', true)?></h2>
+          <?php endif;?>
             <ul class="product-list row off1">
               <li class="grid_6">
-                <div class="box">
-                  <div class="box_aside">
-                    <div class="icon fa-asterisk"></div>
-                  </div>
-                  <div class="box_cnt__no-flow">
-                    <h3>Vestibulum elementum tempus eleifend</h3>
-                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna. Suspendisse commodo tempor sagittis! In justo est sollicitudin.</p>
-                  </div>
-                </div>
-                <hr>
-                <div class="box">
-                  <div class="box_aside">
-                    <div class="icon fa-asterisk"></div>
-                  </div>
-                  <div class="box_cnt__no-flow">
-                    <h3>Congue dui ut porta aenean laoreet</h3>
-                    <p>Pellentesque vitae tortor id neque fermentum pretium. Maecenas ac lacus ut neque rhoncus laoreet sed id tellus.</p>
-                  </div>
-                </div>
-                <hr>
-                <div class="box">
-                  <div class="box_aside">
-                    <div class="icon fa-asterisk"></div>
-                  </div>
-                  <div class="box_cnt__no-flow">
-                    <h3>Aenean laoreet viverra turpis a com</h3>
-                    <p>Maecenas ac lacus ut neque rhoncus laoreet sed id tellus. Donec justo tellus, tincidunt vitae pellentesque nec, pharetra a orci. Praesent</p>
-                  </div>
-                </div>
               </li>
-              <li class="grid_6">
-                <div class="box">
-                  <div class="box_aside">
-                    <div class="icon fa-asterisk"></div>
-                  </div>
-                  <div class="box_cnt__no-flow">
-                    <h3>Tempus eleifend cum sociis natoque</h3>
-                    <p>Labore et dolore magna. Suspendisse commodo tempor sagittis! In justo est sollicitudin eu scelerisque pretium, placerat eget elit.</p>
-                  </div>
-                </div>
-                <hr>
-                <div class="box">
-                  <div class="box_aside">
-                    <div class="icon fa-trophy"></div>
-                  </div>
-                  <div class="box_cnt__no-flow">
-                    <h3>Sociis natoque penatibus vestibulum</h3>
-                    <p>Suspendisse commodo tempor sagittis! In justo est sollicitudin eu scelerisque pretium, placerat eget elit. Praesent faucibus rutrum.</p>
-                  </div>
-                </div>
-                <hr>
-                <div class="box">
-                  <div class="box_aside">
-                    <div class="icon fa-trophy"></div>
-                  </div>
-                  <div class="box_cnt__no-flow">
-                    <h3>Penatibus vestibulum congue dui ut</h3>
-                    <p>In justo est sollicitudin eu scelerisque pretium, placerat eget elit. Praesent faucibus rutrum odio at rhoncus.</p>
-                  </div>
-                </div>
+              <li class="grid_6">    
               </li>
             </ul>
-          </div>
+          </div>  <!--/container-->
+       
         </section>
+         <?php endif;?>
+        <!--======/Our awards======-->
         <section class="well1">
           <div class="container">
             <div class="row">

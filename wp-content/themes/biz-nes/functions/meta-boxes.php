@@ -255,6 +255,26 @@ function custom_meta_boxes() {
 			
 		),
 	);
+	/**записи в блоці нагороди */
+	$meta_box_awards = array(
+		'id'       => 'awards_meta_box',
+		'title'    => __( 'Налаштування нагород', 'theme-text-domain' ),
+		'desc'     => '',
+		'pages'    => array( 'biz_nes_awords' ),
+		'context'  => 'normal',
+		'priority' => 'high',
+		'fields'   => array(
+		
+			array(
+				'label' => __( 'Іконка', 'theme-text-domain' ),
+				'id'    => 'awords_icon',
+				'type'  => 'text',
+				'desc'  => __( 'Додайте до опису іконку у форматі "fa-globe", детальний опис іконок
+				на сайті <a href="https://fontawesome.com/icons?d=gallery">fontawesome.com</a> ', 'theme-text-domain' ),
+			),	
+			
+		),
+	);
 
 /**записи у Відгуках */
 	$meta_box_review = array(
@@ -355,7 +375,33 @@ function custom_meta_boxes() {
 				'std'          => '',
 				'type'         => 'gallery',
 			),
-			
+			array(
+				'label' => __( 'Нагороди', 'theme-text-domain' ),
+				'id'    => 'about_page_awards_tab',
+				'type'  => 'tab',
+			),
+			array(
+				'label' => __( 'Показувать розділ Відгуки..?', 'theme-text-domain' ),
+				'id'    => 'about_page_awards_show',
+				'type'  => 'on-off',
+				'desc'  => sprintf( __( 'Показувать чи не показувать розділ Нагороди', 'theme-text-domain' ), '<code>on</code>' ),
+				'std'   => 'on',
+			),	
+			array(
+				'id'           => 'about_page_awards_list',
+				'label'        => __( 'Назва блоку Нагороди', 'theme-text-domain' ),
+				'std'          => 'Our awards',
+				'type'         => 'text',
+			),
+			array(
+				'id'           => 'about_page_awards_numeric_slider',
+				'label'        => __( 'Кількість статей', 'theme-text-domain' ),
+				'desc'         => __( '-1 всі статті, 0 жодної, 1,2.. кількість статей ', 'theme-text-domain' ),
+				'std'          => '',
+				'type'         => 'numeric-slider',
+				'min_max_step' => '-1,10,1',
+				),
+
 		),
 	);
 	/**
@@ -425,6 +471,8 @@ function custom_meta_boxes() {
 	//ot_register_meta_box( $my_meta_box );
 	ot_register_meta_box( $meta_box_services);
 	ot_register_meta_box($meta_box_review);
+	ot_register_meta_box($meta_box_awards);
+	
 
 		/**умова виведення мета-бокса на певну сторінку */
 		$post_id = isset( $_GET['post'] ) ? $_GET['post'] : ( isset( $_POST['post_ID'] ) ? $_POST['post_ID'] : 0 );
