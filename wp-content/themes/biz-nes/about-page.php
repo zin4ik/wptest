@@ -20,8 +20,8 @@ get_header();
 
 				endwhile; // End of the loop.
 				?>
-				</div>
-				</div>
+				</div>  <!--/about_content-->
+				</div>  <!--/grid_6-->
 				<div class="grid_6">
                 <h2>Quick facts</h2>
                 <div class="row">
@@ -100,8 +100,48 @@ get_header();
           <?php endif;?>
             <ul class="product-list row off1">
               <li class="grid_6">
+              <div class="box">
+                  <div class="box_aside">
+                    <div class="icon fa-asterisk"></div>
+                  </div>
+                  <div class="box_cnt__no-flow">
+                    <h3>Vestibulum elementum tempus eleifend</h3>
+                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna. Suspendisse commodo tempor sagittis! In justo est sollicitudin.</p>
+                  </div>
+                </div>
               </li>
-              <li class="grid_6">    
+              <li class="grid_6">   
+              <div class="box">
+                  <div class="box_aside">
+                    <div class="icon fa-asterisk"></div>
+                  </div>
+                  <div class="box_cnt__no-flow">
+                    <h3>Vestibulum elementum tempus eleifend</h3>
+                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna. Suspendisse commodo tempor sagittis! In justo est sollicitudin.</p>
+                  </div>
+                </div>
+              </li>
+              <li class="grid_6">
+              <div class="box">
+                  <div class="box_aside">
+                    <div class="icon fa-asterisk"></div>
+                  </div>
+                  <div class="box_cnt__no-flow">
+                    <h3>Vestibulum elementum tempus eleifend</h3>
+                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna. Suspendisse commodo tempor sagittis! In justo est sollicitudin.</p>
+                  </div>
+                </div>
+              </li>
+              <li class="grid_6">   
+              <div class="box">
+                  <div class="box_aside">
+                    <div class="icon fa-asterisk"></div>
+                  </div>
+                  <div class="box_cnt__no-flow">
+                    <h3>Vestibulum elementum tempus eleifend</h3>
+                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna. Suspendisse commodo tempor sagittis! In justo est sollicitudin.</p>
+                  </div>
+                </div>
               </li>
             </ul>
           </div>  <!--/container-->
