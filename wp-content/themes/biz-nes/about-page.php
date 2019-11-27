@@ -99,51 +99,41 @@ get_header();
             <h2><?php echo get_post_meta($post->ID,'about_page_awards_list', true)?></h2>
           <?php endif;?>
             <ul class="product-list row off1">
+            <?php 
+            $about_page_awards_numeric=get_post_meta($post->ID,'about_page_awards_numeric_slider', true);
+            $arg_awords = array(
+              'post_type'   => 'biz_nes_awords',
+              'post_status' => 'publish',
+              'order'       => 'DESC',
+              'orderby'     => 'title',
+              'post_per_page' => '$about_page_awards_numeric',
+            );
+            $query_awords = new WP_Query($arg_awords);
+            if ($query_awords->have_posts()) :
+              while($query_awords->have_posts()) :
+                 $query_awords->the_post();
+                 ?>
               <li class="grid_6">
               <div class="box">
                   <div class="box_aside">
-                    <div class="icon fa-asterisk"></div>
+                  <?php if (get_post_meta($post->ID,'awords_icon', true)):?>
+                    <div class="icon <?php echo get_post_meta($post->ID,'awords_icon', true);?>"></div>
+                  <?php endif;?>
+                  <?php if (get_the_post_thumbnail( $query_awords->ID,'large');):?>
+                    <div class="icon <?php echo get_post_meta($post->ID,'awords_icon', true);?>"></div>
+                  <?php endif;?>
+
                   </div>
                   <div class="box_cnt__no-flow">
-                    <h3>Vestibulum elementum tempus eleifend</h3>
-                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna. Suspendisse commodo tempor sagittis! In justo est sollicitudin.</p>
+                    <h3><?php echo get_the_title(); ?></h3>
+                    <p><?php echo get_the_content(); ?></p>
                   </div>
                 </div>
               </li>
-              <li class="grid_6">   
-              <div class="box">
-                  <div class="box_aside">
-                    <div class="icon fa-asterisk"></div>
-                  </div>
-                  <div class="box_cnt__no-flow">
-                    <h3>Vestibulum elementum tempus eleifend</h3>
-                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna. Suspendisse commodo tempor sagittis! In justo est sollicitudin.</p>
-                  </div>
-                </div>
-              </li>
-              <li class="grid_6">
-              <div class="box">
-                  <div class="box_aside">
-                    <div class="icon fa-asterisk"></div>
-                  </div>
-                  <div class="box_cnt__no-flow">
-                    <h3>Vestibulum elementum tempus eleifend</h3>
-                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna. Suspendisse commodo tempor sagittis! In justo est sollicitudin.</p>
-                  </div>
-                </div>
-              </li>
-              <li class="grid_6">   
-              <div class="box">
-                  <div class="box_aside">
-                    <div class="icon fa-asterisk"></div>
-                  </div>
-                  <div class="box_cnt__no-flow">
-                    <h3>Vestibulum elementum tempus eleifend</h3>
-                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna. Suspendisse commodo tempor sagittis! In justo est sollicitudin.</p>
-                  </div>
-                </div>
-              </li>
+              <?php endwhile;?>
             </ul>
+            <?php wp_reset_postdata(); 
+           endif;?>
           </div>  <!--/container-->
        
         </section>
