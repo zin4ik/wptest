@@ -401,6 +401,58 @@ function custom_meta_boxes() {
 				'type'         => 'numeric-slider',
 				'min_max_step' => '-1,10,1',
 				),
+				/**
+				 * наші можливості і вміння
+				 */
+				array(
+					'label' => __( 'Наші вміння', 'theme-text-domain' ),
+					'id'    => 'about_page_skills_tab',
+					'type'  => 'tab',
+				),
+				array(
+					'label' => __( 'Показувать розділ Наші можливості і вміння..?', 'theme-text-domain' ),
+					'id'    => 'about_page_skills_show',
+					'type'  => 'on-off',
+					'desc'  => sprintf( __( 'Показувать чи не показувать розділ Наші можливості і вміння', 'theme-text-domain' ), '<code>on</code>' ),
+					'std'   => 'on',
+				),	
+				array(
+					'id'           => 'about_block1_title',
+					'label'        => __( 'Назва блоку №1', 'theme-text-domain' ),
+					'std'          => '',
+					'type'         => 'text',
+				),
+				array(
+					'id'=>'about_block1_desc',
+					'label'=>'Короткий опис блоку №1',
+					'desc'=>'',
+					'type'=>'textarea',
+				),
+				array(
+					'id'           => 'about_block2_title',
+					'label'        => __( 'Назва блоку №2', 'theme-text-domain' ),
+					'std'          => '',
+					'type'         => 'text',
+				),
+				array(
+					'id'=>'about_block2_desc',
+					'label'=>'Короткий опис блоку №2',
+					'desc'=>'',
+					'type'=>'textarea',
+				),
+				array(
+					'id'           => 'about_block3_title',
+					'label'        => __( 'Назва блоку №3', 'theme-text-domain' ),
+					'std'          => '',
+					'type'         => 'text',
+				),
+				array(
+					'id'=>'about_block3_desc',
+					'label'=>'Короткий опис блоку №3',
+					'desc'=>'',
+					'type'=>'textarea',
+				),
+			
 
 		),
 	);
