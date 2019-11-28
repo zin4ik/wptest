@@ -113,23 +113,32 @@ get_header();
               while($query_awords->have_posts()) :
                  $query_awords->the_post();
                  ?>
-              <li class="grid_6">
-              <div class="box">
+              <li class="grid_6 box about_awords">
                   <div class="box_aside">
-                  <?php if (get_post_meta($post->ID,'awords_icon', true)):?>
-                    <div class="icon <?php echo get_post_meta($post->ID,'awords_icon', true);?>"></div>
-                  <?php endif;?>
-                  <?php if (get_the_post_thumbnail( $query_awords->ID,'large');):?>
-                    <div class="icon <?php echo get_post_meta($post->ID,'awords_icon', true);?>"></div>
-                  <?php endif;?>
+              
+                  <?php if (get_post_meta($post->ID,'awords_icon', true) || get_the_post_thumbnail( $query_awords->ID,'large')):?>
 
-                  </div>
+                      <?php if (get_post_meta($post->ID,'awords_icon', true) && get_the_post_thumbnail( $query_awords->ID,'large')):?>
+                        <div class="icon <?php echo get_post_meta($post->ID,'awords_icon', true);?>">
+                        </div>
+                        <!--/icon-->
+                      <?php elseif (get_post_meta($post->ID,'awords_icon', true)== false && get_the_post_thumbnail( $query_awords->ID,'large')==true): ?>
+                     
+                        <div class="icon ">
+                        <?php echo get_the_post_thumbnail( $query_awords->ID,'large');?>
+                        </div>  <!--/ img-->
+                        <?php else:?>
+                          <div class="icon <?php echo get_post_meta($post->ID,'awords_icon', true);?>">
+                        </div>
+                        <!--/icon-->
+                      <?php endif;?>  <!--/icon && img-->
+                  <?php endif;?>  <!--/ icon || img-->
+                  </div> <!--/box_aside-->
                   <div class="box_cnt__no-flow">
                     <h3><?php echo get_the_title(); ?></h3>
                     <p><?php echo get_the_content(); ?></p>
-                  </div>
-                </div>
-              </li>
+                  </div>  <!-- box_cnt__no-flow -->
+              </li>  <!--/grid_6-->
               <?php endwhile;?>
             </ul>
             <?php wp_reset_postdata(); 

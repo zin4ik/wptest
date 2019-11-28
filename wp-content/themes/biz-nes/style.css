@@ -62,12 +62,7 @@ body,
 .feedback_tel, .feedback_name,.feedback_submit {
 	margin-bottom: 10px;
 	width: 90%;
-}/*
- .wpcf7-form-control{*/
-/*	padding: 10px;
-	width: 90%;
-	padding:5px 20px;
-}*/
+}
 .product-list_services:nth-child(2){
 
   padding-bottom: 50px;
@@ -80,6 +75,9 @@ body,
 .product-list_services:nth-child(n+3){
   margin-top: 50px;
 
+}
+.about_awords{
+  padding-bottom: 20px;
 }
 
 	
