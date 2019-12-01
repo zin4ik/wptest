@@ -409,6 +409,7 @@ function custom_meta_boxes() {
 					'id'    => 'about_page_skills_tab',
 					'type'  => 'tab',
 				),
+			
 				array(
 					'label' => __( 'Показувать розділ Наші можливості і вміння..?', 'theme-text-domain' ),
 					'id'    => 'about_page_skills_show',
@@ -417,42 +418,25 @@ function custom_meta_boxes() {
 					'std'   => 'on',
 				),	
 				array(
-					'id'           => 'about_block1_title',
-					'label'        => __( 'Назва блоку №1', 'theme-text-domain' ),
-					'std'          => '',
-					'type'         => 'text',
-				),
-				array(
-					'id'=>'about_block1_desc',
-					'label'=>'Короткий опис блоку №1',
-					'desc'=>'',
-					'type'=>'textarea',
-				),
-				array(
-					'id'           => 'about_block2_title',
-					'label'        => __( 'Назва блоку №2', 'theme-text-domain' ),
-					'std'          => '',
-					'type'         => 'text',
-				),
-				array(
-					'id'=>'about_block2_desc',
-					'label'=>'Короткий опис блоку №2',
-					'desc'=>'',
-					'type'=>'textarea',
-				),
-				array(
-					'id'           => 'about_block3_title',
-					'label'        => __( 'Назва блоку №3', 'theme-text-domain' ),
-					'std'          => '',
-					'type'         => 'text',
-				),
-				array(
-					'id'=>'about_block3_desc',
-					'label'=>'Короткий опис блоку №3',
-					'desc'=>'',
-					'type'=>'textarea',
-				),
-			
+					'id'           => 'about_page_skills_list_item',
+					'label'        => __( 'Навики та вміння', 'theme-text-domain' ),
+					'type'         => 'list-item',
+					'condition'    => 'about_page_skills_show:is(on)',
+					'settings'     => array(
+						array(
+						'id'           => 'about_block_title',
+						'label'        => __( 'Назва блоку', 'theme-text-domain' ),
+						'std'          => '',
+						'type'         => 'text',
+						),
+						array(
+							'id'=>'about_block_desc',
+							'label'=>'Короткий опис блоку',
+							'desc'=>'',
+							'type'=>'textarea',
+						),
+					)
+				)
 
 		),
 	);

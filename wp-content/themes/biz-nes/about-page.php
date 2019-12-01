@@ -149,23 +149,36 @@ get_header();
          <?php endif;?>
         <!--======/Our awards======-->
         <section class="well1">
+        <?php 
+        $skills_about = get_post_meta($post->ID, 'about_page_skills_list_item',true);
+        ?>
+        <?php if (get_post_meta($post->ID,'about_page_skills_show', true)!='off'):
+         
+         
+
+          ?>
           <div class="container">
             <div class="row">
+            <?php foreach($skills_about as $skills):?>
               <div class="grid_4">
-                <h2>Duties</h2>
-                <p>Aenean ac leo eget nunc fringilla a non nulla! Nunc orci mi, venenatis quis ultrices vitae, congue non nibh. Nulla bibendum, justo eget ultrices vestibulum, erat tortor venenatis risus, sit amet cursus dui augue a arcu.</p>
-              </div>
-              <div class="grid_4">
-                <h2>Skills</h2>
-                <p>Nunc orci mi, venenatis quis ultrices vitae, congue non nibh. Nulla bibendum, justo eget ultrices vestibulum, erat tortor venenatis risus, sit amet cursus dui augue a arcu. Quisque mauris risus, gravida a molestie eu, dictum.</p>
-              </div>
-              <div class="grid_4">
-                <h2>Opportunities</h2>
-                <p>Quisque mauris risus, gravida a molestie eu, dictum ac augue. Integer sodales tempor lectus; sit amet dictum metus pharetra nec. Fusce bibendum dapibus pretium. Nunc eu sem vitae lacus laoreet elementum.</p>
-              </div>
+              <?php if ($skills['about_block_title']):?>
+                <h2>
+                <?php echo $skills['about_block_title'];?>
+                </h2>
+              <?php endif;
+              if ($skills['about_block_desc']):?>
+                <p>
+                <?php echo $skills['about_block_desc'];?>
+                </p>
+              <?php endif;?>
+              </div>  <!--/grid_4-->
+               <?php endforeach;?>
             </div>
+      
           </div>
+        <?php endif;?>
         </section>
+        <?php get_template_part('template-parts\contact','page');?>
       </main>
 
 
