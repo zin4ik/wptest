@@ -20,7 +20,7 @@
 
        <!--провіряєм чи головна сторінка для виводу блоку Контакти -->
       <?php if(is_front_page()|| is_page_template( 'home-page.php' )):
-      get_template_part('template-parts\contact','page');
+        get_template_part('template-parts\contact','page');
        endif;?>
       <footer>
         <section class="widget well3">
